@@ -1,0 +1,500 @@
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 100vw;
+  height: 95vh;
+  display: none;
+  z-index: 2;
+}
+
+.sticky {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.RegisterModal {
+  display: flex;
+  gap: 1rem;
+}
+
+#Sticky_RegisterModal {
+  display: none;
+  z-index: 3;
+}
+
+.extentedRegisterModal #Sticky_RegisterModal,
+.extentedRegisterModal #overlay {
+  display: block;
+}
+
+.RM_single {
+  border-radius: var(--border-radius-3);
+  background-color: var(--color-white);
+  width: 30rem;
+  box-shadow: var(--box-shadow);
+  transition: all 300ms ease;
+}
+.RM_single:hover {
+  box-shadow: none;
+}
+.RM_single_header {
+  padding: 1rem;
+  padding-bottom: 0;
+
+  position: relative;
+}
+
+.RM_single_header h1 {
+  margin: 0.5rem 0 1rem 0;
+}
+.RM_single_body {
+  padding: 0.5rem;
+}
+
+.div_RegisterModal_header_elements {
+  display: flex;
+  gap: 1rem;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.div_RegisterModal_header_elements .input_1:nth-child(3) {
+  width: 8rem;
+  transition: all 300ms ease;
+}
+
+.RM_close_btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  position: absolute;
+  right: 4%;
+  top: 10%;
+}
+.RM_close_btn:hover {
+  color: var(--color-danger);
+  font-size: 1.1rem;
+}
+
+.fa-plus {
+  outline: none;
+  border: none;
+  font-size: 1.2rem;
+  margin: 0 1rem;
+}
+.fa-plus:hover {
+  cursor: pointer;
+  color: var(--color-success);
+}
+
+.DEC {
+  border: var(--color-info-dark) 3px solid;
+  transition: all 300ms ease;
+}
+.DEC:focus {
+  border: var(--color-danger) 3px solid;
+}
+
+/*DropDown MENU-------------------------------*/
+.dropDown_parent {
+  /* width: 70%; */
+  background: var(--color-white);
+
+  /* border-radius: 0.2%; */
+  height: 50vh;
+  min-width: 80%;
+  overflow: auto;
+}
+.one_DropDown_element {
+  display: block;
+  padding: 5px;
+}
+.one_DropDown_element:hover {
+  cursor: pointer;
+  background-color: var(--color-new-green);
+  color: var(--color-dark);
+}
+/* RM Bits Representation MENU-------------------------------*/
+
+.RM_bitsRepresentation_mainParent {
+  margin: 2px;
+  background-color: var(--color-white);
+  height: 60vh;
+  overflow: auto;
+  color: var(--color-dark-2);
+}
+
+.RM_OneBitRepresentationLine {
+  display: grid;
+  grid-template-columns: 3.2rem auto 2rem;
+  border: solid var(--color-dark-2) 0.01rem;
+  border-bottom: none;
+  justify-content: baseline;
+  align-items: center;
+  padding: 0.3rem;
+  margin-right: 0.3rem;
+}
+.RM_bitsRepresentation_mainParent > div:last-child {
+  border-bottom: solid var(--color-dark-2) 0.01rem;
+}
+.RM_title {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.RM_bitsRepresentation_mainParent > div:nth-child(1) {
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+.RM_title1 {
+  color: var(--color-new-green);
+  font-weight: 600;
+}
+/*div1*/
+.RM_bitNR {
+  font-size: 1.3rem;
+  color: var(--color-warning);
+  text-align: center;
+  font-weight: 1500;
+}
+
+/*div2*/
+
+.lineTitle {
+  color: var(--color-new-blue);
+  margin-bottom: 0.5rem;
+  /* font-size: 1.1rem; */
+}
+.RM_linebro_sec {
+  display: flex;
+  margin-bottom: 0.3rem;
+  font-size: 0.8rem;
+}
+.RM_bitDes_value {
+  padding: 0 1rem 0 0.5rem;
+  font-weight: 500;
+  color: var(--color-new-blue);
+  width: 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.RM_bitDescription:nth-child(1) {
+  border: 10px solid yellow;
+  /* color: yellow; */
+}
+.CorrectOption_selected {
+  color: var(--color-danger);
+}
+
+/*div3*/
+.RM_bitValues {
+  border: 1px solid rgb(112, 104, 64);
+  color: var(--color-new-green);
+  text-align: center;
+}
+.RM_onebitValue {
+  font-size: 1.1rem;
+
+  padding: 0.1rem;
+  /* font-size: 18px; */
+  cursor: pointer;
+}
+
+/***************************/
+/*Error Modal
+/***************************/
+
+#ErrorModal_mainContainer {
+  position: absolute;
+  top: 3%;
+  right: 3%;
+}
+
+.errorModal {
+  margin: 1rem;
+  background: #ffdb9b;
+  padding: 1.5rem 2.5rem;
+
+  max-width: 45rem;
+
+  border-radius: 0.5rem;
+  border-left: 0.8rem solid #ffa502;
+  font-size: 20px;
+  /* color: #4caf50; */
+  overflow: hidden;
+  position: sticky;
+  top: 1%;
+  z-index: 4;
+}
+
+.errorModal .fa-exclamation-circle {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-danger);
+  font-size: 2rem;
+}
+.errorModal .errorModal_msg {
+  display: block;
+  padding: 0 2rem;
+  font-size: 1rem;
+  color: hsl(0, 26%, 29%);
+}
+
+.EM_close_btn {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ffd080;
+  padding: 1rem 0.9rem;
+  cursor: pointer;
+  color: #ce8500;
+  color: var(--color-danger);
+}
+.EM_close_btn:hover {
+  background-color: #ffc766;
+  color: rgb(158, 37, 37);
+}
+
+.show {
+  animation: show_slide 0.4s ease;
+}
+.hide {
+  animation: hide_slide 0.4s ease-in-out;
+}
+
+@keyframes show_slide {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+@keyframes hide_slide {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/***************************/
+/*Text to XML format Menu
+/***************************/
+
+.r_textArea {
+  background-color: #282c34;
+  width: 70%;
+  height: 100vh;
+  color: #83adf8;
+  font-size: 20px;
+  margin: 0 150px 0 100px;
+}
+
+#Convert_reg_2_XML_window {
+  border: 1px solid gold;
+  margin: 20px;
+  display: flex;
+  align-items: center;
+}
+
+/***************************************/
+/*Calculator APP
+/**************************************/
+.Calculator_appeared #CalculatorAPP_mainDomain {
+  display: block;
+  visibility: visible;
+
+  top: 2rem;
+  opacity: 1;
+}
+.Calculator_appeared #CalculatorAPP_btn {
+  color: var(--color-new-green);
+}
+.Calculator_appeared #CalculatorAPP_btn span:hover {
+  color: var(--color-new-green);
+}
+
+#CalculatorAPP_mainDomain {
+  position: absolute;
+  right: 6rem;
+
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-3);
+  box-shadow: var(--box-shadow);
+  top: -100rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 300ms ease;
+}
+#CalculatorAPP_mainDomain:hover {
+  box-shadow: none;
+}
+#CalculatorAPP_header {
+  position: relative;
+  /* border: #105ee6 5px solid; */
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  /* font-size: 1.4rem; */
+}
+
+#CalculatorAPP_header .title_closeBTN {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 1rem;
+}
+
+#CalculatorAPP_header .title_closeBTN span:hover {
+  color: var(--color-danger);
+  cursor: pointer;
+  font-weight: 1500;
+}
+.title_closeBTN h2 {
+  font-size: 1.1rem;
+}
+.title_closeBTN_1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+}
+.colorIcon {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+#CalculatorAPP_display {
+  position: relative;
+  top: 1rem;
+  text-align: end;
+  /* border: 1px solid saddlebrown; */
+  /* margin: 1rem 0 1rem 15rem; */
+  margin: 1.5rem 0 1rem 0;
+}
+.input_line {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  margin-right: 18rem;
+  font-size: 1.2rem;
+}
+
+.input_line input {
+  position: absolute;
+  left: 4rem;
+}
+
+#CalculatorAPP_word_dword {
+  position: absolute;
+  /* border: 1px solid saddlebrown; */
+  top: 10rem;
+  right: 3rem;
+  font-size: 1rem;
+  color: var(--color-primary);
+}
+#CalculatorAPP_word_dword:hover {
+  cursor: pointer;
+  color: var(--color-danger);
+}
+#CalculatorAPP_word_dword:after {
+  content: "WORD";
+}
+.dword_calc #CalculatorAPP_word_dword:after {
+  content: "DWORD";
+}
+/*===Calculator BODY====*/
+
+#CalculatorAPP_body {
+  margin-top: 1rem;
+  border-top: var(--color-new-green) 1px dashed;
+  width: 90%;
+  margin: auto;
+  /* padding: var(--card-padding); */
+}
+#bitsSpace_PC {
+  /* border: 1px solid rgb(21, 204, 76); */
+  padding: 1rem;
+}
+#firstRowPC,
+#secondRowPC,
+#firstRowBits,
+#secondRowBits {
+  /* border: 2px solid rgb(9, 17, 11); */
+  /* padding: 34px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* gap: 0.1rem; */
+}
+
+.oneBitSquarePC {
+  width: 0.9rem;
+  font-size: 1.5rem;
+  color: var(--color-dark);
+  display: flex;
+  justify-content: center;
+  /* border: 1px rgb(63, 211, 18) solid; */
+}
+.oneBitOrder {
+  width: 0.9rem;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+.oneBitSquarePC:hover {
+  color: var(--color-danger);
+  cursor: pointer;
+  /* background-color: #83adf8; */
+  /* padding: 5rem; */
+}
+.oneBitSquarePC_danger {
+  color: var(--color-danger);
+}
+.oneBitSquarePC_danger:hover {
+  color: var(--color-dark);
+}
+.hidden {
+  visibility: hidden;
+}
+.spaceBetween_PC {
+  margin-right: 1rem;
+}
+
+#firstRowPC,
+#firstRowBits {
+  display: none;
+}
+.dword_calc #firstRowPC,
+.dword_calc #firstRowBits {
+  display: flex;
+  /* justify-content: center; */
+}
+
+/* please delete------------------------------------ */

@@ -1,0 +1,750 @@
+/*
+!This file contains the css code for: 
+*COMPOSE A CAN MESSAGE
+*DECODE A MESSAGE
+*DECODE CAN-Log
+*/
+
+/* ==========Sidebar Buttons ============= */
+
+.A1_ComposeCANmsgs_UI_appeared #A1_ComposeCANmsgs_UI_btn,
+.A2_DecodeOneMsg_UI_appeared #A2_OneMsg_UI_btn,
+.A3_DecodeCANLog_UI_appeared #A3_DecodeCANLog_UI_btn {
+  color: var(--color-new-green);
+}
+.A1_ComposeCANmsgs_UI_appeared #A1_ComposeCANmsgs_UI_btn span:hover,
+.A2_DecodeOneMsg_UI_appeared #A2_OneMsg_UI_btn span:hover,
+.A3_DecodeCANLog_UI_appeared #A3_DecodeCANLog_UI_btn span:hover {
+  color: var(--color-new-green);
+}
+
+/*=======================================================================*/
+/*====================== A1 COMPOSE A CAN MESSAGE- DETAILS ================= */
+/*=======================================================================*/
+
+#A1_ComposeCANmsgs_UI {
+  border: 1px solid rgb(23, 23, 16);
+  user-select: none;
+  transition: all 300ms ease;
+  position: relative;
+  /* display: block; DELETE */
+}
+.A1_ComposeCANmsgs_UI_appeared {
+  #A1_ComposeCANmsgs_UI {
+    display: block;
+  }
+  #QuickTools_UI_mainDIV {
+    display: none;
+  }
+}
+/* ========== Dropdown menu global settings ========== */
+
+.dropdown_g {
+  position: relative;
+  width: 7rem;
+  /* height: 3rem; */
+  color: var(--color-dark);
+  margin: 0.4rem 1rem;
+  display: flex;
+}
+
+.dropdown_g::before {
+  content: "";
+  position: absolute;
+  right: 1rem;
+  top: 0.5rem;
+  z-index: 1;
+  width: 0.35rem;
+  height: 0.35rem;
+  border: 2px solid var(--color-dark);
+  border-top: 2px var(--color-white);
+  border-right: 2px var(--color-white);
+  transform: rotate(-45deg);
+  transition: 0.5s;
+}
+.dropdown_g.active::before {
+  transform: rotate(-225deg);
+  top: 0.8rem;
+}
+.dropdown_g input {
+  /* position: absolute;
+    top: 0;
+    left: 0; */
+  width: 100%;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  background: var(--color-white);
+  color: var(--color-dark);
+  font-size: 0.8rem;
+  font-weight: 1500;
+  box-shadow: 0 5rem 20rem rgba(245, 28, 28, 0.05);
+  border: 1px solid var(--color-dark);
+  border-radius: 0.5rem;
+}
+.dropdown_g.subindex {
+  width: 5rem;
+}
+.dropdown_options {
+  display: none;
+  /* opacity: 1; */
+  position: absolute;
+  top: 2.5rem;
+  background-color: var(--color-white);
+  color: var(--color-dark);
+  /* width: 100%; */
+  box-shadow: 0 5rem 20rem rgba(245, 28, 28, 0.05);
+  border-radius: 0.5rem;
+  z-index: 2;
+  max-height: 40vh;
+  overflow: auto;
+}
+.active .dropdown_options {
+  display: block;
+  /* opacity: 1; */
+}
+.dropdown_g .dropdown_options p {
+  display: block;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  width: 10rem;
+  /* justify-content: justify; */
+}
+
+.dropdown_g .dropdown_options p:hover {
+  background-color: var(--color-new-green);
+  border-radius: 0.5rem;
+  color: var(--color-dark);
+}
+
+.dropdown_gg {
+  position: relative;
+  /* width: 7rem; */
+  /* height: 3rem; */
+  color: var(--color-dark);
+  margin: 0.4rem 1rem;
+  display: flex;
+}
+.dropdown_gg input {
+  width: 7rem;
+}
+.dropdown_ggg {
+  position: relative;
+  width: 17rem;
+  /* height: 3rem; */
+  color: var(--color-dark);
+  /* margin: 0.4rem 1rem; */
+  display: flex;
+}
+/*========== Message parameters Options - Compose a CAN message IU ========== */
+
+#composeCANmsg_btn {
+  position: absolute;
+  top: 80%;
+  transform: translateY(-80%);
+  right: 1rem;
+  zoom: 2.5;
+}
+#A1_CM_message_UI {
+  position: sticky;
+  top: 4rem;
+  z-index: 1;
+  box-shadow: none;
+}
+
+/*========== Create a SDO message ========== */
+#msg_container_CM {
+  display: block;
+}
+
+.Expand_writeMSG_menu_CM #msg_container_CM,
+.Expand_A1_Table_CM #A1_Table_CM {
+  display: none;
+}
+#Expand_writeMSG_menu_CM span,
+#Expand_A1_Table_CM span {
+  transform: rotate(180deg);
+}
+.Expand_writeMSG_menu_CM #Expand_writeMSG_menu_CM span,
+.Expand_A1_Table_CM #Expand_A1_Table_CM span {
+  transform: rotate(360deg);
+}
+#SDO_value_field {
+  display: none;
+}
+.Compose_SDO #SDO_value_field {
+  display: flex;
+}
+#Compose_SDO_option {
+  display: none;
+}
+.Compose_SDO #Compose_SDO_option {
+  display: block;
+}
+
+.FactorGroupEnabled .SDO_show_1 {
+  display: none;
+}
+.SDO_show_2 {
+  display: none;
+}
+.FactorGroupEnabled .SDO_show_2 {
+  display: block;
+}
+
+.SDO_no_FG .SDO_show_1,
+.SDO_no_FG .SDO_show_2,
+.SDO_no_FG .SDO_show_3 {
+  display: none;
+}
+
+.SDO_show_4 {
+  display: none;
+}
+.SDO_no_FG .SDO_show_4 {
+  display: block;
+}
+/*========== Create a PDO message ========== */
+
+#PDO_writeMenu {
+  display: none;
+}
+.Compose_PDO #PDO_writeMenu {
+  display: block;
+}
+
+#checkboxes_PDO_type {
+  position: absolute;
+  /* font-size: 1rem; */
+}
+
+/* First line */
+.FactorGroupEnabled .PDO_show_1_1 {
+  display: none;
+}
+.PDO_show_2_1 {
+  display: none;
+}
+.FactorGroupEnabled .PDO_show_2_1 {
+  display: block;
+}
+
+.PDO_no_FG_1 .PDO_show_1_1,
+.PDO_no_FG_1 .PDO_show_2_1,
+.PDO_no_FG_1 .PDO_show_3_1 {
+  display: none;
+}
+
+.PDO_show_4_1 {
+  display: none;
+}
+.PDO_no_FG_1 .PDO_show_4_1 {
+  display: block;
+}
+/* Second line */
+.FactorGroupEnabled .PDO_show_1_2 {
+  display: none;
+}
+.PDO_show_2_2 {
+  display: none;
+}
+.FactorGroupEnabled .PDO_show_2_2 {
+  display: block;
+}
+
+.PDO_no_FG_2 .PDO_show_1_2,
+.PDO_no_FG_2 .PDO_show_2_2,
+.PDO_no_FG_2 .PDO_show_3_2 {
+  display: none;
+}
+
+.PDO_show_4_2 {
+  display: none;
+}
+.PDO_no_FG_2 .PDO_show_4_2 {
+  display: block;
+}
+/* Third line */
+
+.FactorGroupEnabled .PDO_show_1_3 {
+  display: none;
+}
+.PDO_show_2_3 {
+  display: none;
+}
+.FactorGroupEnabled .PDO_show_2_3 {
+  display: block;
+}
+.PDO_no_FG_3 .PDO_show_1_3,
+.PDO_no_FG_3 .PDO_show_2_3,
+.PDO_no_FG_3 .PDO_show_3_3 {
+  display: none;
+}
+
+.PDO_show_4_3 {
+  display: none;
+}
+.PDO_no_FG_3 .PDO_show_4_3 {
+  display: block;
+}
+/* Forth line */
+.FactorGroupEnabled .PDO_show_1_4 {
+  display: none;
+}
+.PDO_show_2_4 {
+  display: none;
+}
+.FactorGroupEnabled .PDO_show_2_4 {
+  display: block;
+}
+
+.PDO_no_FG_4 .PDO_show_1_4,
+.PDO_no_FG_4 .PDO_show_2_4,
+.PDO_no_FG_4 .PDO_show_3_4 {
+  display: none;
+}
+
+.PDO_show_4_4 {
+  display: none;
+}
+.PDO_no_FG_4 .PDO_show_4_4 {
+  display: block;
+}
+/*========== Create a NMT message ========== */
+#NMT_writeMenu {
+  display: none;
+}
+.Compose_NMT #NMT_writeMenu {
+  display: flex;
+}
+#NMT_broadcastMSG {
+  position: absolute;
+  left: 2rem;
+}
+#NMT_broadcastMSG input {
+  zoom: 1.5;
+}
+
+/*========== TABLE ========== */
+#A1_Table_CM {
+  background-color: var(--color-white);
+  width: 100%;
+  border-radius: var(--card-border-radius);
+  padding: var(--card-padding);
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  transition: all 300ms ease;
+}
+
+#A1_Table_CM_body {
+  font-size: 1rem;
+}
+
+/*=======================================================================*/
+/*====================== A2 DECODE A MESSAGE - DETAILS ===================== */
+/*=======================================================================*/
+
+/* ==========FLYING MODAL ============= */
+#A2_flyingModal_cobid_data {
+  position: absolute;
+  padding: 1rem;
+  background-color: var(--color-white);
+  gap: 1rem;
+  left: 3rem;
+  top: -20rem;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius-3);
+  transition: all 300ms ease;
+}
+#A2_flyingModal_cobid_data:hover {
+  box-shadow: none;
+}
+
+#A2_COB_ID_field_flyingModal,
+#A2_DATA_field_flyingModal {
+  text-align: center;
+  background-color: var(--color-background);
+  color: var(--color-dark);
+}
+#A2_COB_ID_field_flyingModal {
+  width: 6rem;
+}
+#A2_DATA_field_flyingModal {
+  width: 14rem;
+}
+
+/* ========A2_DecodeOneMsg_UI_appeared =========== */
+
+.A2_DecodeOneMsg_UI_appeared {
+  #A2_flyingModal_cobid_data {
+    top: 2rem;
+  }
+
+  #A2_Table_Space {
+    display: block;
+  }
+  #QuickTools_UI_mainDIV {
+    display: none;
+  }
+}
+
+/*================ DECODE TABLE =============*/
+
+#A2_Decode_Table {
+  background-color: var(--color-white);
+  width: 100%;
+  border-radius: var(--card-border-radius);
+  padding: var(--card-padding);
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  transition: all 300ms ease;
+  border-collapse: collapse;
+}
+
+#A2_Table_Space {
+  h2 {
+    margin-bottom: 1rem;
+  }
+  table {
+    position: relative;
+  }
+
+  thead {
+    position: sticky;
+    top: 3.5rem;
+    background-color: var(--color-white);
+    z-index: 1;
+    th {
+      height: 2.8rem;
+    }
+  }
+
+  .A2_table_td_general {
+    height: 2.8rem;
+    border: none;
+    border-bottom: var(--color-light-2) 1px solid;
+  }
+  .tr_background_R {
+    background-color: var(--color-blue-3);
+    border-left: var(--color-blue-2) 0.4rem solid;
+  }
+  .td_org_msg {
+    position: relative;
+    cursor: pointer;
+
+    .Short_Tooltip {
+      position: absolute;
+      background-color: var(--color-dark);
+      color: var(--color-white);
+      padding: 1rem 1.2rem;
+      border-radius: 0.5rem;
+      text-align: center;
+      top: -150%;
+      left: 50%;
+      z-index: 2;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+
+    .Short_Tooltip::before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 1rem solid;
+      border-color: var(--color-primary) #0000 #0000 #0000;
+    }
+    .Short_Tooltip_adjusted {
+      left: 0;
+      transform: translateX(0%);
+    }
+    .Short_Tooltip_adjusted.Short_Tooltip::before {
+      left: 8rem;
+    }
+  }
+  .td_type {
+    color: var(--color-new-yellow);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .td_obj {
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+  .td_obj_danger {
+    color: var(--color-danger);
+    font-weight: 500;
+    max-width: 35rem;
+  }
+  .td_obj_actual_danger {
+    color: var(--color-danger);
+    font-weight: 500;
+  }
+
+  .td_data {
+    position: relative; //needed for Register Representation
+    color: var(--color-success);
+  }
+  .td_data:hover {
+    cursor: pointer;
+    color: var(--color-new-blue);
+  }
+  .td_close {
+    user-select: none;
+  }
+}
+
+/*================= PDO Detected UI ============== */
+#PDO_detected_main_UI {
+  position: absolute;
+  top: 5rem;
+  width: 45%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+}
+
+#PDO_detected_body_space {
+  display: grid;
+  grid-template-columns: 0.7fr 1fr;
+  font-size: 1rem;
+}
+
+.apply_div_btn {
+  margin-right: 1rem;
+  font-size: 1.1rem;
+}
+
+/*==== In Table hover and generate modal of Registers ======== */
+.Hover_generate_modal {
+  position: absolute;
+  padding: 0.5rem;
+  top: 50%;
+  right: 80%;
+  transform: translate(0, -50%);
+  border: 1px solid rgb(211, 201, 221);
+  border-radius: 2rem;
+  background-color: var(--color-white);
+  color: var(--color-dark-2);
+  text-align: left;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  z-index: 2;
+}
+.Hover_generate_modal > div {
+  min-width: 25rem;
+}
+
+/*=======================================================================*/
+/*====================== A3 DECODE CAN-LOG UI - DETAILS ===================== */
+/*=======================================================================*/
+
+.A3_DecodeCANLog_UI_appeared {
+  #A3_DecodeCANLog_UI {
+    display: block;
+  }
+  #QuickTools_UI_mainDIV {
+    display: none;
+  }
+
+  &.MsgsSavedinRAM {
+    //Decoding done and waiting for the user to tell what he wants
+    #A2_Table_Space {
+      display: block;
+    }
+    #A3_LoadCANLog_btns_space {
+      display: block;
+    }
+    #A3_fileInput_Process_bar {
+      display: none;
+    }
+  }
+
+  #A3_DecodeCANLog_UI {
+    div .material-symbols-sharp {
+      display: inline;
+      padding: 0.4rem;
+      border-radius: 50%;
+      background-color: var(--color-success);
+      color: var(--color-background);
+      zoom: 1.2;
+    }
+    #A3_DecodeCANLog_UI_upload_btn {
+      color: var(--color-success);
+    }
+    #A3_DecodeCANLog_UI_upload_btn::file-selector-button {
+      background-color: var(--color-dark);
+      color: var(--color-white);
+      border-radius: 1rem;
+      box-sizing: border-box;
+      cursor: pointer;
+      display: inline-block;
+      line-height: normal;
+      margin: 0;
+
+      outline: none;
+      padding: 0.5rem 1rem;
+      text-align: center;
+      text-decoration: none;
+      transition: all 300ms ease;
+      margin-right: 0.5rem;
+    }
+    #A3_DecodeCANLog_UI_upload_btn::file-selector-button:hover {
+      color: var(--color-danger);
+    }
+  }
+
+  #A3_status_card {
+    background-color: var(--color-white);
+    display: inline-block;
+    padding: 1.5rem;
+
+    .circular-progress {
+      position: relative;
+      width: 6rem;
+      height: 6rem;
+      background-color: var(--color-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: conic-gradient(
+        var(--color-primary) 0deg,
+        var(--color-white) 0deg
+      );
+    }
+    .circular-progress::before {
+      content: "";
+      position: absolute;
+      width: 4.5rem;
+      height: 4.5rem;
+      background-color: var(--color-background);
+      border-radius: 50%;
+    }
+    .progress-value {
+      color: var(--color-dark-2);
+      z-index: 1;
+      font-weight: 500;
+    }
+  }
+  //Second Process bar inside the OVERVIEW menu
+  #A3_progress_status_ui {
+    .circular-progress2 {
+      position: relative;
+      width: 4rem;
+      height: 4rem;
+      background-color: var(--color-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: conic-gradient(
+        var(--color-primary) 0deg,
+        var(--color-white) 0deg
+      );
+    }
+    .circular-progress2::before {
+      content: "";
+      position: absolute;
+      width: 2.5rem;
+      height: 2.5rem;
+      background-color: var(--color-background);
+      border-radius: 50%;
+    }
+    .progress-value2 {
+      color: var(--color-dark-2);
+      z-index: 1;
+      font-weight: 500;
+    }
+  }
+}
+
+/*********** OVERVIEW SETTINGS UI *************/
+#A3_UploadCANLog_Overview_UI {
+  position: absolute;
+  top: 0.8rem;
+  right: -104rem;
+  width: 30rem;
+  padding: 1px;
+  height: 90vh;
+  overflow: auto;
+  border: 1px solid grey;
+  transition: all 500ms ease;
+  z-index: 4;
+  .A3_Axis_overview_divParent {
+    border: 1px solid var(--color-background);
+    border-radius: 1rem;
+    padding: 0.3rem 0.5rem;
+    margin: 0.5rem 0;
+    h2 {
+      cursor: pointer;
+    }
+  }
+  .A3_axisMsg_statistic_space {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .A3_axes_label {
+    font-size: 1rem;
+    margin: 0.5rem;
+  }
+  .A3_Axis_overview_divParent.A3_AxisSelected {
+    border: 1px solid var(--color-danger);
+
+    h2 {
+      color: var(--color-danger);
+    }
+  }
+}
+
+.A3_Overview_appeared #A3_UploadCANLog_Overview_UI {
+  right: 3rem;
+}
+
+.container_checkbox_3 {
+  display: inline-block;
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  // border: 1px solid saddlebrown;
+
+  input {
+    display: none;
+  }
+  .checkmark_3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1.2rem;
+    width: 1.2rem;
+    background-color: #eee;
+    border-radius: 50%;
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 0.45rem;
+      top: 0.25rem;
+      width: 0.2rem;
+      height: 0.5rem;
+      border: solid white;
+      border-width: 0 0.1rem 0.1rem 0;
+      // border: 1px sandybrown solid;
+      transform: rotate(45deg);
+    }
+  }
+  &:hover input ~ .checkmark_3 {
+    background-color: #ccc;
+  }
+  input:checked ~ .checkmark_3 {
+    background-color: #2196f3;
+    background-color: var(--color-new-blue);
+  }
+  input:checked ~ .checkmark_3:after {
+    display: block;
+  }
+}

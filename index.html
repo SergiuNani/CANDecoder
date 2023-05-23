@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Program/style/Register_modal.css" />
+    <link rel="stylesheet" href="./Program/style/help_menu.css" />
+    <link rel="stylesheet" href="./Program/style/CAN_analyze.css" />
+    <link rel="stylesheet" href="./Program/style/General.css" />
+    <link rel="stylesheet" href="./Program/style/MainPage.css" />
+    <link rel="stylesheet" href="./Program/style/Compose_Decode_CAN_UI.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <script
+      src="https://kit.fontawesome.com/94a83c8af4.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>CAN decoder</title>
+  </head>
+  <body
+    class="Rotary_class dark-theme-variables Expand_Load_type_menu_CM Expand_FG_menu_CM A3_DecodeCANLog_UI_appeared A3_Overview_appeared"
+  >
+    <!-- dark-theme-variables -->
+    <div id="global_overlay"></div>
+    <!-- /******************************************************************************/ -->
+    <!-----//////-----------START OF TOP NAV - CHAPTER_1  ------/////////--------->
+    <!-- /******************************************************************************/ -->
+
+    <nav id="TOP_NAV" class="TOP_NAV">
+      <div class="TOP_NAV_left">
+        <div class="logo">
+          <h2>CAN<span class="danger"> DECODER</span></h2>
+        </div>
+      </div>
+      <div id="A3_LoadCANLog_btns_space" class="flex-center-center-gap">
+        <button class="button_2" id="A3_DisplayResults_btn">
+          Display Results
+        </button>
+        <button class="button_2" id="A3_OVERVIEW_btn">OVERVIEW</button>
+        <button class="button_2" id="A3_DeleteTable_btn">Delete Table</button>
+        <button class="button_2" id="A3_Discard_CANLOG_btn">
+          Discard CAN_LOG
+        </button>
+      </div>
+
+      <div class="TOP_NAV_right">
+        <div class="theme-toggler" id="themeToggler">
+          <span class="material-symbols-sharp"> light_mode </span>
+          <span class="material-symbols-sharp active"> dark_mode </span>
+        </div>
+        <div class="profile">
+          <div class="info">
+            <p>Good day, <b>Sergiu</b></p>
+            <!-- <small class="text-muted">Admin</small> -->
+            <small class="text-muted">The system salutes the ALMIGHTY</small>
+          </div>
+        </div>
+      </div>
+
+      <!---------------------- START OF MAIN SIDEBAR ---------------------->
+
+      <aside class="sidebar" id="mainSidebar_container">
+        <div class="sidebar_element" id="extendSidebar_btn">
+          <span class="material-symbols-sharp"> menu </span>
+        </div>
+
+        <div class="sidebar_element" id="RegisterModal_btn">
+          <span class="material-symbols-sharp"> library_books </span>
+          <h3 class="sidebarDescription">Registers</h3>
+        </div>
+
+        <div class="sidebar_element" id="A1_ComposeCANmsgs_UI_btn">
+          <span class="material-symbols-sharp">integration_instructions</span>
+          <h3 class="sidebarDescription">Compose Message</h3>
+        </div>
+        <div class="sidebar_element" id="A2_OneMsg_UI_btn">
+          <span class="material-symbols-sharp">send</span>
+          <h3 class="sidebarDescription">Decode Message</h3>
+        </div>
+
+        <div class="sidebar_element" id="A3_DecodeCANLog_UI_btn">
+          <span class="material-symbols-sharp">receipt_long</span>
+          <h3 class="sidebarDescription">Decode CAN-Log</h3>
+        </div>
+        <div class="sidebar_element" id="open_UserSettings_UI">
+          <span class="material-symbols-sharp"> group_work </span>
+          <h3 class="sidebarDescription">Factor Group</h3>
+        </div>
+
+        <div class="sidebar_element" id="CalculatorAPP_btn">
+          <span class="material-symbols-sharp"> calculate </span>
+          <h3 class="sidebarDescription">Programmer Calculator</h3>
+        </div>
+
+        <div class="sidebar_element" id="ReloadXML_btn">
+          <span class="material-symbols-sharp"> downloading </span>
+          <h3 class="sidebarDescription">Load the XML file</h3>
+        </div>
+
+        <a
+          class="sidebar_element"
+          id="HELP_menu_btn"
+          href="./Program/help.html"
+        >
+          <span class="material-symbols-sharp"> help </span>
+          <h3 class="sidebarDescription">HELP Menu</h3>
+        </a>
+
+        <div class="sidebar_element" id="Debug_btn">
+          <span class="material-symbols-sharp">adb</span>
+          <h3 class="sidebarDescription">Debug</h3>
+        </div>
+      </aside>
+      <!---------------------- END OF MAIN SIDEBAR ---------------------->
+
+      <!---------------------- STICKY ELEMENTS ---------------------->
+      <div id="StickyingSpace2TOP_NAV_mainParent">
+        <div id="overlay"></div>
+        <!-- Error Modal main Container -->
+        <div id="ErrorModal_mainContainer"></div>
+
+        <!--2 START OVERVIEW WINDOW-->
+        <div id="A3_UploadCANLog_Overview_UI" class="cardClass border">
+          <!-- Header -->
+          <div class="flex-between m1">
+            <h2>CAN-LOG Display Settings</h2>
+            <span class="material-symbols-sharp" id="A3_Overview_UI_closeBtn"
+              >close</span
+            >
+          </div>
+          <div id="A3_overview_LOG_direction_options" class="smallCardClass">
+            <p>CAN-LOG reading direction:</p>
+            <div class="mt1">
+              <label class="container_checkbox"
+                >Up-Buttom
+                <input
+                  type="radio"
+                  checked="checked"
+                  name="A3_Option_direction"
+                />
+                <span class="checkmark"></span>
+              </label>
+              <label class="container_checkbox"
+                >Buttom-Up
+                <input type="radio" name="A3_Option_direction" />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="smallCardClass">
+            <p>Choose Interval</p>
+            <p>(from 1 to <span id="A3_Overview_text_msgInterval"></span>) :</p>
+            <p>
+              <input
+                type="text"
+                class="input_6"
+                id="A3_Overview_LowerLimit"
+                value="1"
+              />
+              <input
+                type="text"
+                class="input_6"
+                id="A3_Overview_UpperLimit"
+                value="10"
+              />
+            </p>
+          </div>
+
+          <div id="A3_Axes_Availability_space" class="smallCardClass">
+            <p>Available Axes:</p>
+          </div>
+
+          <div class="smallCardClass">
+            <p>Messages Type:</p>
+            <div class="mt1" id="A3_MessageTypes_overview_options">
+              <label class="container_checkbox"
+                >All<input
+                  type="radio"
+                  checked="checked"
+                  name="A3_overview_MsgType"
+                />
+                <span class="checkmark"></span>
+              </label>
+              <label class="container_checkbox"
+                >Master<input type="radio" name="A3_overview_MsgType" />
+                <span class="checkmark"></span>
+              </label>
+              <label class="container_checkbox"
+                >Mapping<input
+                  type="radio"
+                  name="A3_overview_MsgType"
+                  id="A3_Mapping_msgs_type_option_input"
+                />
+                <span class="checkmark"></span>
+              </label>
+              <label class="container_checkbox"
+                >Errors<input type="radio" name="A3_overview_MsgType" />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </div>
+
+          <div id="A3_overview_displayResults_UI" class="smallCardClass">
+            <p>Display settings:</p>
+            <div class="mt1">
+              <label class="container_checkbox"
+                >Advanced<input
+                  type="radio"
+                  checked="checked"
+                  name="A3_overview_displayResults"
+                />
+                <span class="checkmark"></span>
+              </label>
+              <label class="container_checkbox"
+                >Legacy<input type="radio" name="A3_overview_displayResults" />
+                <span class="checkmark"></span>
+              </label>
+              <label class="container_checkbox"
+                >Sorted by ID<input
+                  type="radio"
+                  name="A3_overview_displayResults"
+                />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </div>
+          <div
+            class="smallCardClass flex-between-center"
+            id="A3_progress_status_ui"
+          >
+            <button class="button_1" id="A3_Process_Decode_btn">DECODE</button>
+            <div
+              class="circular-progress2"
+              style="
+                background: conic-gradient(
+                  var(--color-primary) 360deg,
+                  var(--color-white) 0deg
+                );
+              "
+            >
+              <span class="progress-value2">
+                <span id="A3_Status_procent2">100</span>%</span
+              >
+            </div>
+          </div>
+        </div>
+        <!--2 End OVERVIEW WINDOW-->
+
+        <!--3 Calculator APP -->
+        <div id="CalculatorAPP_mainDomain" class="dword_calc">
+          <div id="CalculatorAPP_header">
+            <div class="title_closeBTN">
+              <div class="title_closeBTN_1">
+                <div class="colorIcon">
+                  <span class="material-symbols-sharp"> calculate </span>
+                </div>
+                <h2><span class="danger">Programmer </span>Calculator</h2>
+              </div>
+              <span class="material-symbols-sharp" id="CalculatorApp_close_btn"
+                >close</span
+              >
+            </div>
+
+            <div id="CalculatorAPP_display" class="input_3">A1B2C3D4</div>
+
+            <div class="input_line">
+              <p>HEX</p>
+              <input type="text" id="CalculatorAPP_hex" class="input_2" />
+            </div>
+            <div class="input_line">
+              <p>DEC</p>
+              <input type="text" id="CalculatorAPP_dec" class="input_2" />
+            </div>
+            <div id="CalculatorAPP_word_dword"></div>
+          </div>
+          <div id="CalculatorAPP_body"></div>
+        </div>
+
+        <!-- 4 Decode a CAN msg -flying modal - 2 input bars -->
+        <div id="A2_flyingModal_cobid_data" class="flex-center-center">
+          <input
+            type="text"
+            id="A2_COB_ID_field_flyingModal"
+            class="input_2"
+            placeholder="COB_ID"
+          />
+          <input
+            type="text"
+            id="A2_DATA_field_flyingModal"
+            class="input_2"
+            placeholder="DATA"
+          />
+          <span class="material-symbols-sharp" id="simpleCANmsg_close_btn"
+            >close</span
+          >
+        </div>
+
+        <!---------------- 5 START User Fetch XML file -------------------->
+        <div id="UserFetchXML_UI_mainContainer" style="display: none">
+          <div>
+            Please go to where the application is located and load the
+            "DICT.xml" file...
+          </div>
+
+          <input type="file" / id="UserFetchXML_UI_ChooseFile_btn" >
+
+          <span class="material-symbols-sharp goodXML" style="display: none">
+            check_circle
+          </span>
+
+          <span class="material-symbols-sharp badXML" style="display: none">
+            report
+          </span>
+        </div>
+        <!------------------5 END User Fetch XML file ---------------------->
+
+        <!------------------6 START RegisterModal ---------------------->
+        <div class="sticky block" id="Sticky_RegisterModal">
+          <div id="RegisterModal" class="RegisterModal"></div>
+        </div>
+        <!------------------6 END  RegisterModal ---------------------->
+        <!------------------7 Start PDO Detected main UI ---------------------->
+
+        <div class="cardClass none" id="PDO_detected_main_UI">
+          <div class="flex-between margin1">
+            <h2>PDO has been detected</h2>
+            <span class="material-symbols-sharp" id="close_PDO_detected_main_UI"
+              >close</span
+            >
+          </div>
+
+          <div class="smallCardClass" id="PDO_detected_header_space">
+            <div>
+              <p>Axis ID:</p>
+              <p id="PDO_detect_axisID" class="success highlight-text"></p>
+            </div>
+            <div>
+              <p>COB ID:</p>
+              <p id="PDO_detect_cobID" class="success highlight-text"></p>
+            </div>
+            <div>
+              <p>DATA to decode::</p>
+              <p id="PDO_detect_data" class="primary highlight-text"></p>
+            </div>
+          </div>
+
+          <div class="smallCardClass" id="PDO_detected_body_space">
+            <div class="mt1 flex-align-column">
+              <!-- Object 1 -->
+              <div class="mb">
+                <input
+                  type="text"
+                  placeholder="Object 1"
+                  class="input_5 mr"
+                  id="PDO_detect_obj1"
+                />
+                <input
+                  type="text"
+                  placeholder="00"
+                  class="input_5"
+                  id="PDO_detect_obj_subindex_1"
+                  style="width: 3rem"
+                />
+              </div>
+
+              <!-- Object 2 -->
+              <div class="mb">
+                <input
+                  type="text"
+                  placeholder="Object 2"
+                  class="input_5 mr"
+                  id="PDO_detect_obj2"
+                />
+                <input
+                  type="text"
+                  placeholder="00"
+                  class="input_5"
+                  id="PDO_detect_obj_subindex_2"
+                  style="width: 3rem"
+                />
+              </div>
+              <!-- Object 3 -->
+              <div class="mb">
+                <input
+                  type="text"
+                  placeholder="Object 3"
+                  class="input_5 mr"
+                  id="PDO_detect_obj3"
+                />
+                <input
+                  type="text"
+                  placeholder="00"
+                  class="input_5"
+                  id="PDO_detect_obj_subindex_3"
+                  style="width: 3rem"
+                />
+              </div>
+
+              <!-- Object 4 -->
+              <div class="mb">
+                <input
+                  type="text"
+                  placeholder="Object 4"
+                  class="input_5 mr"
+                  id="PDO_detect_obj4"
+                />
+                <input
+                  type="text"
+                  placeholder="00"
+                  class="input_5"
+                  id="PDO_detect_obj_subindex_4"
+                  style="width: 3rem"
+                />
+              </div>
+            </div>
+            <!-- PDO_detected_body_space - SECOND COLUMN-->
+
+            <div>
+              <div class="flex-column mt" id="PDO_detected_options_menu">
+                <label class="container_checkbox_1 mb"
+                  >User input
+                  <input type="radio" checked name="PDO_detected" />
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container_checkbox_1 mb"
+                  >Set default objects for
+                  <span class="PDOdetected_CobidType"></span>
+                  <input type="radio" name="PDO_detected" />
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container_checkbox_1 mb"
+                  >Set these object(s) for all
+                  <span class="PDOdetected_CobidType1"></span>
+                  <input type="radio" name="PDO_detected" />
+                  <span class="checkmark"></span>
+                </label>
+
+                <label class="container_checkbox_1 mb"
+                  >Set compatible object(s)
+                  <input type="radio" name="PDO_detected" />
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container_checkbox_1 mb"
+                  >Set compatible objects for the remaining PDOs<input
+                    type="radio"
+                    name="PDO_detected"
+                  />
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container_checkbox_1 mb none"
+                  >I know data doesn`t match, proceed...
+                  <input type="radio" name="PDO_detected" />
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              <div class="flex-end apply_div_btn">
+                <button
+                  class="button_1 execute_btn"
+                  id="applyBtn_PDO_detected_UI"
+                >
+                  Apply
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!------------------8 END PDO Detected main UI ---------------------->
+        <!------------------9 START FactorGroup Preferences ---------------------->
+
+        <div class="cardClass border" id="FactorGroup_main_UI">
+          <div class="flex-between">
+            <h2>User Settings</h2>
+            <span class="material-symbols-sharp" id="close_FG_pref_UI"
+              >close</span
+            >
+          </div>
+
+          <!----- First big parent - LoadType and FG_Options ----->
+
+          <div class="smallCardClass">
+            <!-- First collapse menu - Expand_Load_type_menu_CM -->
+            <div class="margin1">
+              <div class="flex-start animate" id="Expand_Load_type_menu_CM">
+                <span class="material-symbols-sharp">expand_circle_down</span>
+                <h3>Load type</h3>
+              </div>
+
+              <div id="Load_type_menu_CM">
+                <div id="checkboxes_R_L" class="flex-center-center mt mb2">
+                  <label class="container_checkbox"
+                    >Rotary
+                    <input type="radio" checked="checked" name="radio" />
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="container_checkbox"
+                    >Linear
+                    <input type="radio" name="radio" />
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <div class="ml2">
+                  <span class="rot"
+                    >One mechanical rotation (1 rot) is equal to :</span
+                  >
+                  <span class="lin">One m (1 meter) is equal to :</span>
+                  <input type="text" class="input_5" id="OneRot_IU_value" />
+                  <pre class="inline">  IU </pre>
+                  <p class="block mt new-blue">
+                    The above value should be given in Load units. Please
+                    account for any gear ratios from Motor to Load.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- END First collapse menu -->
+
+            <!-- Second collapse menu -->
+            <div class="margin1" id="FG_parent">
+              <div id="Expand_FG_menu_CM" class="animate flex-start mb1">
+                <span class="material-symbols-sharp">expand_circle_down</span>
+                <h3>Factor Group Options</h3>
+              </div>
+              <!-- Prefered FG -->
+              <div class="FG_menu_CM ml2">
+                <label class="container_checkbox"
+                  >Prefered Factor Group
+                  <input type="radio" name="FG_type" checked="check" />
+                  <span class="checkmark"></span>
+                </label>
+                <div class="flex-center-center Prefered_FG_options mt1 mb1">
+                  <!-- Position Units -->
+                  <div class="flex-center-center">
+                    <div class="rot">
+                      <p class="text-muted">Position Units</p>
+                      <div class="dropdown_g">
+                        <input
+                          type="text"
+                          id="FG_pos_rot_p"
+                          placeholder="Position Units"
+                          readonly
+                        />
+                        <div class="dropdown_options">
+                          <p>IU</p>
+                          <p>rad</p>
+                          <p>deg</p>
+                          <p>rot</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lin">
+                      <p class="text-muted">Position Units</p>
+                      <div class="dropdown_g">
+                        <input
+                          type="text"
+                          id="FG_pos_lin_p"
+                          placeholder="Position Units"
+                          readonly
+                        />
+                        <div class="dropdown_options">
+                          <p>IU</p>
+                          <p>m</p>
+                          <p>mm</p>
+                          <p>um</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Velocity Units -->
+                  <div class="flex-center-center">
+                    <div class="rot">
+                      <p class="text-muted">Velocity Units</p>
+                      <div class="dropdown_g">
+                        <input
+                          type="text"
+                          id="FG_spd_rot_p"
+                          placeholder="Velocity Units"
+                          readonly
+                        />
+                        <div class="dropdown_options">
+                          <p>IU</p>
+                          <p>rad/s</p>
+                          <p>rpm</p>
+                          <p>rps</p>
+                          <p>deg/s</p>
+                          <p>deg/min</p>
+                          <p>in/s</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lin">
+                      <p class="text-muted">Velocity Units</p>
+                      <div class="dropdown_g">
+                        <input
+                          type="text"
+                          id="FG_spd_lin_p"
+                          placeholder="Velocity Units"
+                          readonly
+                        />
+                        <div class="dropdown_options">
+                          <p>IU</p>
+                          <p>m/s</p>
+                          <p>mm/s</p>
+                          <p>um/s</p>
+                          <p>mm/min</p>
+                          <p>in/s</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Acceleration Units -->
+                  <div class="flex-center-center">
+                    <div class="rot">
+                      <p class="text-muted">Acceleration Units</p>
+                      <div class="dropdown_g">
+                        <input
+                          type="text"
+                          id="FG_acc_rot_p"
+                          placeholder="Acceleration Units"
+                          readonly
+                        />
+                        <div class="dropdown_options">
+                          <p>IU</p>
+                          <p>rad/s^2</p>
+                          <p>deg/s^2</p>
+                          <p>rot/s^2</p>
+                          <p>krad/s^2</p>
+                          <p>in/s^2</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lin">
+                      <p class="text-muted">Acceleration Units</p>
+                      <div class="dropdown_g">
+                        <input
+                          type="text"
+                          id="FG_acc_lin_p"
+                          placeholder="Acceleration Units"
+                          readonly
+                        />
+                        <div class="dropdown_options">
+                          <p>IU</p>
+                          <p>m/s^2</p>
+                          <p>mm/s^2</p>
+                          <p>um/s^2</p>
+                          <p>in/s^2</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Time Units -->
+                  <div class="flex-center-center">
+                    <div>
+                      <p class="text-muted">Time Units</p>
+                      <div class="dropdown_g">
+                        <input
+                          type="text"
+                          id="FG_time_units_p"
+                          placeholder="Time Units"
+                          readonly
+                        />
+                        <div class="dropdown_options">
+                          <p>IU</p>
+                          <p>ms</p>
+                          <p>s</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Forced FG -->
+
+              <div class="FG_menu_CM ml2 mt1">
+                <label class="container_checkbox"
+                  >Forced Factor Group
+                  <input type="radio" name="FG_type" />
+                  <span class="checkmark"></span>
+                </label>
+
+                <div class="Forced_FG_options none mt1">
+                  <!-- Position Units -->
+                  <div class="flex-center-center">
+                    <div class="rot">
+                      <p class="text-muted">Position Units</p>
+                      <div class="dropdown_g">
+                        <input
+                          type="text"
+                          id="FG_pos_rot"
+                          placeholder="Position Units"
+                          readonly
+                        />
+                        <div class="dropdown_options">
+                          <p>IU</p>
+                          <p>rad</p>
+                          <p>deg</p>
+                          <p>rot</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lin">
+                      <p class="text-muted">Position Units</p>
+                      <div class="dropdown_g">
+                        <input
+                          type="text"
+                          id="FG_pos_lin"
+                          placeholder="Position Units"
+                          readonly
+                        />
+                        <div class="dropdown_options">
+                          <p>IU</p>
+                          <p>m</p>
+                          <p>mm</p>
+                          <p>um</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Velocity Units -->
+                  <div class="flex-center-center">
+                    <div class="rot">
+                      <p class="text-muted">Velocity Units</p>
+                      <div class="dropdown_g">
+                        <input
+                          type="text"
+                          id="FG_spd_rot"
+                          placeholder="Velocity Units"
+                          readonly
+                        />
+                        <div class="dropdown_options">
+                          <p>IU</p>
+                          <p>rad/s</p>
+                          <p>rpm</p>
+                          <p>rps</p>
+                          <p>deg/s</p>
+                          <p>deg/min</p>
+                          <p>in/s</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lin">
+                      <p class="text-muted">Velocity Units</p>
+                      <div class="dropdown_g">
+                        <input
+                          type="text"
+                          id="FG_spd_lin"
+                          placeholder="Velocity Units"
+                          readonly
+                        />
+                        <div class="dropdown_options">
+                          <p>IU</p>
+                          <p>m/s</p>
+                          <p>mm/s</p>
+                          <p>um/s</p>
+                          <p>mm/min</p>
+                          <p>in/s</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Acceleration Units -->
+                  <div class="flex-center-center">
+                    <div class="rot">
+                      <p class="text-muted">Acceleration Units</p>
+                      <div class="dropdown_g">
+                        <input
+                          type="text"
+                          id="FG_acc_rot"
+                          placeholder="Acceleration Units"
+                          readonly
+                        />
+                        <div class="dropdown_options">
+                          <p>IU</p>
+                          <p>rad/s^2</p>
+                          <p>deg/s^2</p>
+                          <p>rot/s^2</p>
+                          <p>krad/s^2</p>
+                          <p>in/s^2</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lin">
+                      <p class="text-muted">Acceleration Units</p>
+                      <div class="dropdown_g">
+                        <input
+                          type="text"
+                          id="FG_acc_lin"
+                          placeholder="Acceleration Units"
+                          readonly
+                        />
+                        <div class="dropdown_options">
+                          <p>IU</p>
+                          <p>m/s^2</p>
+                          <p>mm/s^2</p>
+                          <p>um/s^2</p>
+                          <p>in/s^2</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Time Units -->
+                  <div class="flex-center-center">
+                    <div>
+                      <p class="text-muted">Time Units</p>
+                      <div class="dropdown_g">
+                        <input
+                          type="text"
+                          id="FG_time_units"
+                          placeholder="Time Units"
+                          readonly
+                        />
+                        <div class="dropdown_options">
+                          <p>IU</p>
+                          <p>ms</p>
+                          <p>s</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End of FactorGroup -->
+            </div>
+            <!-- End Second collapse menu -->
+          </div>
+        </div>
+        <!------------------9 END FactorGroup Preferences ---------------------->
+      </div>
+    </nav>
+
+    <!-- /******************************************************************************/ -->
+    <!-------/////---------- START OF MAIN BODY - CHAPTER_2 ----/////-------------->
+    <!-- /******************************************************************************/ -->
+
+    <div id="CAN_DECODER_BODY_container">
+      <!-- Needed for the grid  ratio -->
+      <div class="Needed"></div>
+      <main>
+        <!-- CHAPTER_2_1 START Register Modal -->
+        <div id="QuickTools_UI_mainDIV" class="flex-center-gap">
+          <div class="mt1">
+            <div class="flex-center">
+              <div id="SearchObjects" class="flex-center-center">
+                <span class="material-symbols-sharp">search</span>
+                <input
+                  autocomplete="off"
+                  type="text"
+                  id="SearchObjectsInputBar"
+                  class="input_4"
+                  placeholder="Search for an object..."
+                />
+              </div>
+            </div>
+            <div id="SearchResults4Objects" class="flex-center"></div>
+          </div>
+
+          <div id="QuickTools_secondColumn" class="">
+            <!--START Quick Conversion UI -  -->
+            <div class="smallCardClass">
+              <div class="margin1">
+                <div class="flex-start animate">
+                  <h3>Quick Conversion</h3>
+                </div>
+
+                <div id="QuickConvertion_UI" class="none">
+                  <!-- CHECKBOXES -->
+                  <div
+                    id="checkboxes_QuickConvertor"
+                    class="flex-column-start mt1_5"
+                  >
+                    <label class="container_checkbox"
+                      >POS<input
+                        type="radio"
+                        checked="checked"
+                        name="radio_quickConvert"
+                      />
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container_checkbox"
+                      >SPD<input type="radio" name="radio_quickConvert" />
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container_checkbox"
+                      >ACC<input type="radio" name="radio_quickConvert" />
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container_checkbox"
+                      >TIME<input type="radio" name="radio_quickConvert" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <!-- Long ROW -->
+
+                  <div class="flex-center-center-gap">
+                    <div class="relative">
+                      <p class="description_QC_title">DEC Before</p>
+                      <input
+                        type="text"
+                        class="input_5"
+                        id="Value_before_QuickConvertion"
+                      />
+                    </div>
+
+                    <div class="relative">
+                      <p class="description_QC_title">Units</p>
+                      <div class="dropdown_g">
+                        <input
+                          type="text"
+                          id="Units_before_QuickConvertion"
+                          placeholder="Velocity Units"
+                          readonly
+                        />
+                      </div>
+                    </div>
+
+                    <div class="relative">
+                      <span class="material-symbols-sharp"> sync_alt </span>
+                    </div>
+
+                    <div class="relative">
+                      <p class="description_QC_title">Decimal</p>
+                      <input
+                        type="text"
+                        class="input_5"
+                        id="Value_after_QuickConvertion"
+                      />
+                    </div>
+
+                    <div class="relative">
+                      <p class="description_QC_title">HEX</p>
+                      <input
+                        type="text"
+                        class="input_5"
+                        id="hex_after_QuickConvertion"
+                      />
+                    </div>
+
+                    <div class="relative">
+                      <p class="description_QC_title">Little Endian</p>
+                      <input
+                        type="text"
+                        class="input_5"
+                        id="LEndian_after_QuickConvertion"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- END START Quick Conversion UI -->
+
+            <!-- START COB_ID QA -->
+            <div class="smallCardClass">
+              <div class="margin1">
+                <div class="flex-start animate">
+                  <h3>COB ID Search</h3>
+                </div>
+
+                <div class="mt1_5 flex-center-center-gap" id="COB_ID_quick_IU">
+                  <div class="relative">
+                    <p class="description_QC_title">Input COB ID</p>
+                    <input type="text" class="input_5" id="cobid_quick_input" />
+                  </div>
+
+                  <div class="relative">
+                    <span class="material-symbols-sharp"> sync_alt </span>
+                  </div>
+
+                  <div class="relative">
+                    <p class="description_QC_title">TYPE</p>
+                    <input
+                      type="text"
+                      class="input_5"
+                      id="cobid_quick_type"
+                      readonly
+                    />
+                  </div>
+
+                  <div class="relative">
+                    <p class="description_QC_title">Axis ID</p>
+                    <input
+                      type="text"
+                      class="input_5"
+                      id="cobid_quick_axisid"
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END COB_ID QA  -->
+          </div>
+        </div>
+        <!--CHAPTER_2_1 END Register Modal -->
+
+        <!--CHAPTER_2_2 START of A1_ComposeCANmsgs_UI -->
+        <div id="A1_ComposeCANmsgs_UI" class="cardClass none">
+          <!-- ADD A NONE CLASS TO THE ABOVE MF -->
+          <!-- Compose a CAN message title -->
+          <div class="flex-between">
+            <h2>Compose a CAN message</h2>
+            <span
+              class="material-symbols-sharp"
+              id="A1_ComposeCANmsgs_UI_close_btn"
+              >close</span
+            >
+          </div>
+
+          <!----- Second big parent - Message ----->
+
+          <div id="A1_CM_message_UI" class="smallCardClass">
+            <!-- Start of Third collapse menu -->
+            <div class="margin1">
+              <div class="animate flex-start" id="Expand_writeMSG_menu_CM">
+                <span class="material-symbols-sharp">expand_circle_down</span>
+                <h3>Message</h3>
+              </div>
+
+              <div id="msg_container_CM">
+                <!-- Compose a message btn -->
+                <div class="flex-center-center" id="composeCANmsg_btn">
+                  <span class="material-symbols-sharp">play_arrow</span>
+                </div>
+                <!-- Type, axis ID, object part selection -->
+                <div class="flex-center-center-gap">
+                  <!-- 1. MESSAGE - Type of messsage-->
+                  <div>
+                    <p class="text-muted">Type of message</p>
+                    <div class="dropdown_g">
+                      <input
+                        type="text"
+                        id="Compose_msgType"
+                        placeholder="Type"
+                        readonly
+                      />
+                      <div class="dropdown_options">
+                        <p>SDO</p>
+                        <p>PDO</p>
+                        <p>NMT</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 2. MESSAGE - Axis ID -->
+                  <div>
+                    <p class="text-muted">Axis ID</p>
+                    <div class="dropdown_gg">
+                      <input
+                        type="text"
+                        id="Compose_msgAxisID"
+                        placeholder="Axis ID"
+                        class="input_5"
+                        autocomplete="off"
+                      />
+                    </div>
+                  </div>
+                  <!-- 3. MESSAGE - Object+subindex SDO select -->
+
+                  <div id="Compose_SDO_option">
+                    <p class="text-muted">Object</p>
+
+                    <div class="dropdown_ggg">
+                      <div class="dropdown_g" id="dropdown_SDO_Obj">
+                        <input
+                          type="text"
+                          placeholder="Object"
+                          id="SDO_obj_input_CM"
+                          autocomplete="off"
+                        />
+                      </div>
+
+                      <div
+                        class="dropdown_g subindex"
+                        id="dropdown_SDO_subindex"
+                      >
+                        <input
+                          type="text"
+                          placeholder="00"
+                          id="SDO_subindex_value_CM"
+                          readonly
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- --** SDO **-- value field and helping dropdowns -->
+                <div class="flex-center-center-gap" id="SDO_value_field">
+                  <!-- 1. Read Write RADIO btns -->
+                  <div id="Read_write_option_CM" class="mt1 flex-center-center">
+                    <label class="container_checkbox"
+                      >Write
+                      <input type="radio" checked="checked" name="radio1" />
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container_checkbox"
+                      >Read
+                      <input type="radio" name="radio1" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+
+                  <!-- 2. SDO value field -->
+                  <div>
+                    <p class="text-muted">Value</p>
+                    <div class="dropdown_gg">
+                      <input
+                        type="text"
+                        id="SDO_input_value_CM"
+                        placeholder="Value"
+                        class="input_5"
+                        autocomplete="off"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- 3. SDO helping units - adaptable dropdown -->
+                  <div class="SDO_show_1">
+                    <p class="text-muted">-</p>
+                    <div class="dropdown_g">
+                      <input
+                        type="text"
+                        id="SDO_helping_FG"
+                        placeholder="IU"
+                        readonly
+                      />
+                    </div>
+                  </div>
+
+                  <!-- 4. SDO FG enabled units -->
+                  <div id="FG_SDO_units" class="SDO_show_2">
+                    <p class="text-muted">Units</p>
+                    <div class="dropdown_gg">
+                      <p id="FG_units_SDO_value">-</p>
+                    </div>
+                  </div>
+                  <!-- 5. SDO specify DEC or HEX -->
+                  <div class="specifyDecHex mt1_5">
+                    <p class="SDO_show_3">in DEC</p>
+                    <p class="SDO_show_4">in HEX</p>
+                  </div>
+                </div>
+
+                <!-- --PDO-- objrct+value fields and helping dropdowns -->
+                <div class="flex-center-center mt1" id="PDO_writeMenu">
+                  <div
+                    id="checkboxes_PDO_type"
+                    class="flex-column-center mt mb2"
+                  >
+                    <label class="container_checkbox"
+                      >RPDO_1<input
+                        type="radio"
+                        checked="checked"
+                        name="R_PDO_type"
+                      />
+                      <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container_checkbox"
+                      >RPDO_2<input type="radio" name="R_PDO_type" />
+                      <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container_checkbox"
+                      >RPDO_3<input type="radio" name="R_PDO_type" />
+                      <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container_checkbox"
+                      >RPDO_4<input type="radio" name="R_PDO_type" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+
+                  <div id="dropdown_PDO_obj">
+                    <!-- //****First mapped obj -->
+                    <div class="flex-center-center">
+                      <!-- 1. PDO 1st Obj - Object input -->
+                      <div class="dropdown_g" id="dropdown_PDO_Obj1">
+                        <input
+                          type="text"
+                          placeholder="1st object"
+                          id="pdo_obj_value_1"
+                          autocomplete="off"
+                        />
+                      </div>
+
+                      <!-- 2. PDO 1st Obj - Subindex input -->
+                      <div
+                        class="dropdown_g subindex"
+                        id="dropdown_PDO_Obj1_subindex"
+                      >
+                        <input
+                          type="text"
+                          placeholder="00"
+                          id="PDO_subindex_input_1"
+                          readonly
+                        />
+                      </div>
+
+                      <!-- 3. PDO 1st Obj - Value input -->
+                      <div>
+                        <div class="dropdown_gg" id="">
+                          <input
+                            type="text"
+                            placeholder="value1"
+                            class="input_5"
+                            id="PDO_input_value_CM_1"
+                          />
+                        </div>
+                      </div>
+
+                      <!-- 4. PDO 1st Obj helping units- adaptable dropdown -->
+                      <div class="PDO_show_1_1">
+                        <div class="dropdown_g">
+                          <input
+                            type="text"
+                            id="PDO_helping_FG_1"
+                            placeholder="IU"
+                            readonly
+                          />
+                        </div>
+                      </div>
+
+                      <!-- 5. PDO 1st Obj - FG enabled units -->
+                      <div class="padding1 PDO_show_2_1">
+                        <p id="PDO_forced_FG_1">rad/s</p>
+                      </div>
+
+                      <!-- 6. PDO 1st Obj - hex or dec-->
+                      <div>
+                        <p class="PDO_show_3_1">in DEC</p>
+                        <p class="PDO_show_4_1">in HEX</p>
+                      </div>
+                    </div>
+
+                    <!-- //****Second mapped obj -->
+                    <div class="flex-center-center">
+                      <!-- 1. PDO 2nd Obj - Object input -->
+                      <div class="dropdown_g" id="dropdown_PDO_Obj2">
+                        <input
+                          type="text"
+                          placeholder="2nd object"
+                          id="pdo_obj_value_2"
+                          autocomplete="off"
+                        />
+                      </div>
+
+                      <!-- 2. PDO 2nd Obj - Subindex input -->
+                      <div
+                        class="dropdown_g subindex"
+                        id="dropdown_PDO_Obj2_subindex"
+                      >
+                        <input
+                          type="text"
+                          placeholder="00"
+                          id="PDO_subindex_input_2"
+                          readonly
+                        />
+                      </div>
+
+                      <!-- 3. PDO 2nd Obj - Value input -->
+                      <div>
+                        <div class="dropdown_gg" id="">
+                          <input
+                            type="text"
+                            placeholder="value1"
+                            class="input_5"
+                            id="PDO_input_value_CM_2"
+                          />
+                        </div>
+                      </div>
+
+                      <!-- 4. PDO 2nd Obj helping units- adaptable dropdown -->
+                      <div class="PDO_show_1_2">
+                        <div class="dropdown_g">
+                          <input
+                            type="text"
+                            id="PDO_helping_FG_2"
+                            placeholder="IU"
+                            readonly
+                          />
+                        </div>
+                      </div>
+
+                      <!-- 5. PDO 2nd Obj - FG enabled units -->
+                      <div class="padding1 PDO_show_2_2">
+                        <p id="PDO_forced_FG_2">rad/s</p>
+                      </div>
+
+                      <!-- 6. PDO 2nd Obj - hex or dec-->
+                      <div>
+                        <p class="PDO_show_3_2">in DEC</p>
+                        <p class="PDO_show_4_2">in HEX</p>
+                      </div>
+                    </div>
+
+                    <!-- //****Third mapped obj -->
+                    <div class="flex-center-center">
+                      <!-- 1. PDO 3rd Obj - Object input -->
+
+                      <div class="dropdown_g" id="dropdown_PDO_Obj3">
+                        <input
+                          type="text"
+                          placeholder="3rd object"
+                          id="pdo_obj_value_3"
+                          autocomplete="off"
+                        />
+                      </div>
+
+                      <!-- 2. PDO 3rd Obj - Subindex input -->
+                      <div
+                        class="dropdown_g subindex"
+                        id="dropdown_PDO_Obj3_subindex"
+                      >
+                        <input
+                          type="text"
+                          placeholder="00"
+                          id="PDO_subindex_input_3"
+                          readonly
+                        />
+                      </div>
+
+                      <!-- 3. PDO 3rd Obj - Value input -->
+                      <div>
+                        <div class="dropdown_gg">
+                          <input
+                            type="text"
+                            placeholder="value1"
+                            class="input_5"
+                            id="PDO_input_value_CM_3"
+                          />
+                        </div>
+                      </div>
+
+                      <!-- 4. PDO 3rd Obj helping units- adaptable dropdown -->
+                      <div class="PDO_show_1_3">
+                        <div class="dropdown_g">
+                          <input
+                            type="text"
+                            id="PDO_helping_FG_3"
+                            placeholder="IU"
+                            readonly
+                          />
+                        </div>
+                      </div>
+
+                      <!-- 5. PDO 3rd Obj - FG enabled units -->
+                      <div class="padding1 PDO_show_2_3">
+                        <p id="PDO_forced_FG_3">rad/s</p>
+                      </div>
+
+                      <!-- 6. PDO 3rd Obj - hex or dec-->
+                      <div>
+                        <p class="PDO_show_3_3">in DEC</p>
+                        <p class="PDO_show_4_3">in HEX</p>
+                      </div>
+                    </div>
+
+                    <!-- //****Forth mapped obj -->
+                    <div class="flex-center-center">
+                      <!-- 1. PDO 4th Obj - Object input -->
+                      <div class="dropdown_g" id="dropdown_PDO_Obj4">
+                        <input
+                          type="text"
+                          placeholder="4th object"
+                          id="pdo_obj_value_4"
+                          autocomplete="off"
+                        />
+                      </div>
+
+                      <!-- 2. PDO 4th Obj - Subindex input -->
+                      <div
+                        class="dropdown_g subindex"
+                        id="dropdown_PDO_Obj4_subindex"
+                      >
+                        <input
+                          type="text"
+                          placeholder="00"
+                          id="PDO_subindex_input_4"
+                          readonly
+                        />
+                      </div>
+
+                      <!-- 3. PDO 4th Obj - Value input -->
+                      <div>
+                        <div class="dropdown_gg">
+                          <input
+                            type="text"
+                            placeholder="value1"
+                            class="input_5"
+                            id="PDO_input_value_CM_4"
+                          />
+                        </div>
+                      </div>
+
+                      <!-- 4. PDO 4th Obj helping units- adaptable dropdown -->
+                      <div class="PDO_show_1_4">
+                        <div class="dropdown_g">
+                          <input
+                            type="text"
+                            id="PDO_helping_FG_4"
+                            placeholder="IU"
+                            readonly
+                          />
+                        </div>
+                      </div>
+
+                      <!-- 5. PDO 4th Obj - FG enabled units -->
+                      <div class="padding1 PDO_show_2_4">
+                        <p id="PDO_forced_FG_4">rad/s</p>
+                      </div>
+
+                      <!-- 6. PDO 4th Obj - hex or dec-->
+                      <div>
+                        <p class="PDO_show_3_4">in DEC</p>
+                        <p class="PDO_show_4_4">in HEX</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- --**NMT**-- NMT menu -->
+                <div class="flex-center-center mt1" id="NMT_writeMenu">
+                  <div id="NMT_broadcastMSG" class="flex-start">
+                    <input type="checkbox" />
+                    <h4>Send Message to all Axis</h4>
+                  </div>
+
+                  <div>
+                    <p class="text-muted">NMT command</p>
+                    <div class="dropdown_g">
+                      <input
+                        type="text"
+                        id="NMT_options"
+                        placeholder="NMT"
+                        readonly
+                      />
+                      <div class="dropdown_options">
+                        <p>0x01 - Start Remote Node</p>
+                        <p>0x02 - Stop Remote Node</p>
+                        <p>0x80 - Enter Pre-Operational</p>
+                        <p>0x81 - Reset Node</p>
+                        <p>0x82 - Reset communication</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- End of Third collapse menu -->
+          </div>
+
+          <!----- Third big parent - Table of Messages ----->
+
+          <div class="smallCardClass">
+            <!-- title of third submenu -->
+            <div class="margin1">
+              <div class="animate flex-start" id="Expand_A1_Table_CM">
+                <span class="material-symbols-sharp">expand_circle_down</span>
+                <h3>Coded Messages</h3>
+              </div>
+            </div>
+
+            <table id="A1_Table_CM">
+              <thead>
+                <tr>
+                  <th>NR</th>
+                  <th>Cob_ID</th>
+                  <th>Message Length</th>
+                  <th>Message</th>
+                </tr>
+              </thead>
+              <tbody id="A1_Table_CM_body"></tbody>
+            </table>
+          </div>
+
+          <!--END of A1_ComposeCANmsgs_UI -->
+        </div>
+        <!--CHAPTER_2_2 END of A1_ComposeCANmsgs_UI -->
+
+        <!--CHAPTER_2_3 START of UPLOAD CANLOG-->
+        <div id="A3_DecodeCANLog_UI" class="none ml2">
+          <div id="A3_fileInput_Process_bar" class="flex-between-start">
+            <div class="smallCardClass inline_block">
+              <input type="file" id="A3_DecodeCANLog_UI_upload_btn" />
+              <button class="button_1" id="A3_Process_btn">Process</button>
+            </div>
+
+            <div id="A3_status_card" class="smallCardClass">
+              <div>
+                <span class="material-symbols-sharp">receipt_long</span>
+              </div>
+              <div class="flex-center-center">
+                <small class="flex-column-center-center mr1">
+                  <h3>Decoded Messages:</h3>
+                  <h3 style="font-size: 1.1rem">
+                    <span id="A3_Status_Decode_number">0</span> /
+                    <span id="A3_Status_Decode_all_number">0</span>
+                  </h3>
+                </small>
+                <div class="circular-progress">
+                  <span class="progress-value">
+                    <span id="A3_Status_procent">0</span>%</span
+                  >
+                </div>
+              </div>
+
+              <small class="text-muted mt"
+                >Loaded file :
+                <p id="A3_Status_Decode_LogPath" class="success"></p>
+              </small>
+            </div>
+          </div>
+        </div>
+        <!--CHAPTER_2_3 END of UPLOAD CANLOG-->
+        <!--CHAPTER_2_4 START of Decode one MSG-->
+
+        <div id="A2_Table_Space" class="none mt2 mb2">
+          <h2>Decoded Messages</h2>
+          <table id="A2_Decode_Table">
+            <thead>
+              <tr>
+                <th>NR</th>
+                <th>Original Message</th>
+                <th>Type</th>
+                <th>Axis ID</th>
+                <th>CS</th>
+                <th>Object</th>
+                <th>Object Name</th>
+                <th>Data</th>
+                <th>Interpretation</th>
+              </tr>
+            </thead>
+            <tbody id="A2_Decode_Table_body"></tbody>
+          </table>
+        </div>
+        <!--CHAPTER_2_4 END of Decode one MSG-->
+      </main>
+    </div>
+
+    <!-- /******************************************************************************/ -->
+    <!-- ---//////----------------- Start OF HELP - CHAPTER_3 --------/////////------------ -->
+    <!-- /******************************************************************************/ -->
+
+    <div id="HELP_container" class="HELP_container">
+      <div class="help_nav">
+        <h1 id="help_title">Welcome to <span>HELP</span></h1>
+        <span class="material-symbols-sharp" id="HELP_close_btn"> close </span>
+      </div>
+
+      <!---------------------- Start OF HELP SIDEBAR---------------------->
+      <aside class="HELP_sidebar">
+        <a class="help_sidebar_element" href="#anchor_About">
+          <span class="material-symbols-sharp"> home </span>
+          <h3 class="sidebarDescription">About this application...</h3>
+        </a>
+        <a class="help_sidebar_element" href="#anchor_calculator">
+          <span class="material-symbols-sharp"> calculate </span>
+          <h3 class="sidebarDescription">Programmer Calculator</h3>
+        </a>
+
+        <a class="help_sidebar_element" href="#anchor_Register">
+          <span class="material-symbols-sharp"> library_books </span>
+          <h3 class="sidebarDescription">Registers</h3>
+        </a>
+
+        <a class="help_sidebar_element" href="#anchor_LoadXML">
+          <span class="material-symbols-sharp"> system_update_alt </span>
+          <h3 class="sidebarDescription">Load the XML file</h3>
+        </a>
+      </aside>
+
+      <div class="HELP_main">
+        <!---------------------- Start of HELP MAIN ---------------------->
+
+        <div class="Article">
+          <div class="Article_header" id="anchor_About">
+            <div>
+              <span class="material-symbols-sharp"> home </span>
+            </div>
+            <p class="helpCard_header"><b>About this application...</b></p>
+          </div>
+        </div>
+
+        <!------- END of Article // About this application...-->
+        <div class="Article">
+          <div class="Article_header" id="anchor_calculator">
+            <div>
+              <span class="material-symbols-sharp"> calculate </span>
+            </div>
+            <p class="helpCard_header"><b>Programmer Calculator</b></p>
+          </div>
+        </div>
+
+        <!------- END of Article //Programmer Calculator-->
+
+        <div class="Article">
+          <div class="Article_header" id="anchor_Register">
+            <div>
+              <span class="material-symbols-sharp"> library_books </span>
+            </div>
+            <p class="helpCard_header"><b>Registers</b></p>
+          </div>
+          <div class="Article_body">
+            <p class="helpCard_header">
+              <b>Register Bit Representation</b> window can be used to display
+              either a Technosoft or a CANopen register at bit level, indicating
+              what each bit means and the associated value.
+            </p>
+          </div>
+          <div class="helpCard">
+            <div class="helpCard_img">
+              <img src="./Program/images/help_RM1.png" alt="" />
+            </div>
+            <div class="cardDescription">
+              <div class="cardDescriptionLine">
+                <div class="help_index">1</div>
+                <p>
+                  <b>Index field</b> - either type in the name of the register
+                  you are looking for or search for it in the auto-generated
+                  drop down list which contains all the supported registers.
+                </p>
+              </div>
+              <div class="cardDescriptionLine">
+                <div class="help_index">2</div>
+                <p>
+                  <b>Value field</b> - specify the value of the said register in
+                  hexadecimal. To display the register with the current value
+                  press the <b>Enter</b> key while inside the input field. To
+                  specify the value in decimal use the following shortcut:
+                  "CTRL+SHIFT+ALT+A".
+                </p>
+              </div>
+              <div class="cardDescriptionLine">
+                <div class="help_index">3</div>
+                <p>
+                  <b>Standard/Technosoft</b> - a toggle button between two
+                  options. Based on the set option the user will be able to work
+                  with either Technosoft or CiA registers.
+                </p>
+              </div>
+              <div class="cardDescriptionLine">
+                <div class="help_index">4</div>
+                <p>
+                  <b>Add window</b> - When pressed another window will be
+                  generated and will have the same functionality. The maximum
+                  allowed number of windows is three.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="helpCard">
+            <img
+              src="./Program/images/help_RM2.png"
+              alt=""
+              width="600px"
+              height="auto"
+            />
+            <div>
+              <div class="cardDescriptionLine">
+                <p>
+                  After one register was displayed the value of the register can
+                  be changed on the fly by either modifying the value from the
+                  input field or clicking on any bit values.
+                </p>
+              </div>
+              <div class="cardDescriptionLine">
+                <p>
+                  Every square which contains a bit number has an event listener
+                  enabled, so that on a click the bit will change from 0 -> 1 or
+                  viciversa. In that moment the number from the value field will
+                  also be modified accordingly, see example from the left.
+                </p>
+              </div>
+              <div class="cardDescriptionLine">
+                <p>
+                  In total there can be generated three
+                  <b>Register Bit Representation</b> windows which work
+                  independantly from each other. Also, these windows can be
+                  deleted or generated at will with no restrictions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!----- END of Article // Registers-->
+
+        <div class="Article">
+          <div class="Article_header" id="anchor_LoadXML">
+            <div>
+              <span class="material-symbols-sharp"> system_update_alt </span>
+            </div>
+            <p class="helpCard_header"><b>Load the XML file</b></p>
+          </div>
+
+          <div class="Article_body">
+            <div class="cardDescriptionLine">
+              <p>
+                <b>Load the XML file</b> button will open the menu to reload the
+                <b>DICT.xml</b> file, right below the main header.
+              </p>
+            </div>
+            <div class="cardDescriptionLine">
+              <p>
+                Normally the program will ask the user to load the XML file at
+                the first use of the program and afterwards the file`s content
+                will be saved in the Local Storage of the users browser. The
+                option to reload the file comes in handy when changes have been
+                made to the XML file.
+              </p>
+            </div>
+            <div class="cardDescriptionLine">
+              <p>
+                The <b>DICT.xml</b> file is a file that stores all the useful
+                information which is needed for the application to function
+                correctly. This file contains 3 things: all the CANopen objects,
+                the CANopen registers and also the Technosoft registers.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!------- END of Article //Load the XML file-->
+      </div>
+      <!---------------------- END of HELP MAIN ---------------------->
+    </div>
+
+    <footer id="footer" class="ml5" style="width: 80%"></footer>
+
+    <!-- scripts dont delete******************************** -->
+    <script src="./Program/JS_folder/variables.js"></script>
+    <script src="./Program/JS_folder/functions.js"></script>
+    <script src="./Program/JS_folder/FetchXML.js"></script>
+    <script src="./Program/JS_folder/Registers.js"></script>
+    <script src="./Program/JS_folder/SimpleAnalysis.js"></script>
+    <script src="./Program/JS_folder/DecodeMsg.js"></script>
+    <script src="./Program/JS_folder/ComposeCANmsg.js"></script>
+    <script src="./Program/JS_folder/MAIN.js"></script>
+    <script src="./Program/JS_folder/General.js"></script>
+    <script src="./Program/JS_folder/tests.js"></script>
+    <script src="./Program/JS_folder/DecodeMultipleMsgs.js"></script>
+    <script src="./Program/JS_folder/CANLOG_Action.js"></script>
+  </body>
+</html>

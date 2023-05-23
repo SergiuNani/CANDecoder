@@ -1,0 +1,9 @@
+/* TO BE DELETERD */
+
+.open_UserSettings_UI #open_UserSettings_UI {
+  color: var(--color-new-green);
+}
+
+.open_UserSettings_UI #open_UserSettings_UI span:hover {
+  color: var(--color-new-green);
+}

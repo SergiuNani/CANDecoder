@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="./HELP/help.css" />
+    <link rel="stylesheet" href="./style/General.css" />
+    <title>Document</title>
+  </head>
+  <body class="dark-theme-colors">
+    <!-- ************************************************************ -->
+    <!-- -------------------*TOP MENU*----------------------------- -->
+    <!-- ************************************************************ -->
+    <section id="Main_header">
+      <header class="flex-between-center">
+        <h2 class="ml2">Welcome to <span class="danger">HELP</span></h2>
+
+        <div>
+          <button class="button-option selected" id="CANdecoder_menu_btn">
+            About CAN DECODER
+          </button>
+          <button class="button-option" id="CANopen_menu_btn">
+            About CANopen
+          </button>
+        </div>
+        <a class="button_1" href="../index.html">GO HOME</a>
+        <div class="mr5" id="themeToggler">
+          <span class="material-symbols-sharp"> light_mode </span>
+          <span class="material-symbols-sharp active_theme"> dark_mode </span>
+        </div>
+      </header>
+
+      <!--CANDECODER HELP OPTIONS -->
+      <section id="CANDECODER_floating_options" class="flex-center-center">
+        <a
+          class="nav-link active_nav_canopen"
+          href="#A2_about_CANdecoder"
+          onclick="UI_clicked(this.href)"
+        >
+          <span class="material-symbols-sharp"> menu </span>
+          <p>About CAN DECODER</p>
+        </a>
+
+        <a
+          class="nav-link"
+          href="#A2_Registers"
+          onclick="UI_clicked(this.href)"
+        >
+          <span class="material-symbols-sharp"> library_books </span>
+
+          <p>Registers</p>
+        </a>
+
+        <a
+          class="nav-link"
+          href="#A2_Compose_msgs"
+          onclick="UI_clicked(this.href)"
+        >
+          <span class="material-symbols-sharp">integration_instructions</span>
+
+          <p>Compose Messages</p>
+        </a>
+
+        <a
+          class="nav-link"
+          href="#A2_Decode_msg"
+          onclick="UI_clicked(this.href)"
+        >
+          <span class="material-symbols-sharp">send</span>
+
+          <p>Decode Message</p>
+        </a>
+
+        <a
+          class="nav-link"
+          href="#A2_Decode_CAN_log"
+          onclick="UI_clicked(this.href)"
+        >
+          <span class="material-symbols-sharp">receipt_long</span>
+
+          <p>Decode CAN-Log</p>
+        </a>
+
+        <a
+          class="nav-link"
+          href="#A2_Factor_group"
+          onclick="UI_clicked(this.href)"
+        >
+          <span class="material-symbols-sharp"> group_work </span>
+
+          <p>Factor Group</p>
+        </a>
+
+        <a
+          class="nav-link"
+          href="#A2_Programmer_calc"
+          onclick="UI_clicked(this.href)"
+        >
+          <span class="material-symbols-sharp"> calculate </span>
+
+          <p>Programmer Calculator</p>
+        </a>
+
+        <a class="nav-link" href="#A2_Load_xml" onclick="UI_clicked(this.href)">
+          <span class="material-symbols-sharp"> downloading </span>
+
+          <p>Load the XML file</p>
+        </a>
+      </section>
+
+      <section id="CANopen_floating_options" class="flex-center-center none">
+        <a
+          class="nav-link"
+          href="#A1_CANopen_service"
+          onclick="UI_clicked(this.href)"
+        >
+          CANopen services
+        </a>
+
+        <a class="nav-link" href="#A1_nmt" onclick="UI_clicked(this.href)">
+          Network Management (NMT)
+        </a>
+
+        <a class="nav-link" href="#A1_sync" onclick="UI_clicked(this.href)">
+          Synchronization object (SYNC)
+        </a>
+
+        <a class="nav-link" href="#A1_emcy" onclick="UI_clicked(this.href)">
+          Emergency Object (EMCY)
+        </a>
+
+        <a class="nav-link" href="#A1_sdo" onclick="UI_clicked(this.href)">
+          Service Data Object (SDO)
+        </a>
+
+        <a class="nav-link" href="#A1_pdo" onclick="UI_clicked(this.href)">
+          Process Data Object (PDO)
+        </a>
+
+        <a class="nav-link" href="#A1_bootup" onclick="UI_clicked(this.href)">
+          Boot-Up Protocol
+        </a>
+
+        <a
+          class="nav-link"
+          href="#A1_nmtMonitoring"
+          onclick="UI_clicked(this.href)"
+        >
+          Heartbeat and nodeguarding
+        </a>
+      </section>
+    </section>
+
+    <!-- ************************************************************ -->
+    <!-- -------------------*MIDDLE BODY*----------------------------- -->
+    <!-- ************************************************************ -->
+    <section>
+      <section id="CANDECODER_Theory_space" class="">
+        <article class="Article" id="A2_about_CANdecoder">
+          <div class="flex-start">
+            <span class="material-symbols-sharp"> menu </span>
+            <h2>About CAN DECODER</h2>
+          </div>
+        </article>
+        <!-- -------------------*REGISTERS*----------------------------- -->
+
+        <article class="Article" id="A2_Registers">
+          <div class="flex-start">
+            <span class="material-symbols-sharp"> library_books </span>
+            <h2>Registers</h2>
+          </div>
+
+          <div class="Article_body">
+            <p class="Article_paragrath" z>
+              <b>Register Bit Representation</b> window can be used to display
+              either a Technosoft or a CANopen register at bit level, indicating
+              what each bit means and the associated value.
+            </p>
+
+            <div class="Article_paragrath">
+              <div class="flex-center-center">
+                <img src="./HELP/images/help_RM1.png" alt="" />
+              </div>
+              <div class="cardDescription">
+                <span class="flex-start mb">
+                  <div class="help_index">1</div>
+                  <p>
+                    <b>Index field</b> - either type in the name of the register
+                    you are looking for or search for it in the auto-generated
+                    drop down list which contains all the supported registers.
+                  </p>
+                </span>
+
+                <span class="flex-start mb">
+                  <div class="help_index">2</div>
+                  <p>
+                    <b>Value field</b> - specify the value of the said register
+                    in hexadecimal. To display the register with the current
+                    value press the <b>Enter</b> key while inside the input
+                    field. To input the value in decimal use the following
+                    shortcut: "CTRL+SHIFT+ALT+A".
+                  </p>
+                </span>
+
+                <span class="flex-start mb">
+                  <div class="help_index">3</div>
+                  <p>
+                    <b>Standard/Technosoft</b> - a toggle button between two
+                    options. Based on the set option the user will be able to
+                    work with either Technosoft or CiA registers.
+                  </p>
+                </span>
+
+                <span class="flex-start mb">
+                  <div class="help_index">4</div>
+                  <p>
+                    <b>Add window</b> - When pressed another window will be
+                    generated and will have the same functionality. The maximum
+                    allowed number of windows is three.
+                  </p>
+                </span>
+              </div>
+            </div>
+            <div class="Article_paragrath">
+              <span class="flex-center">
+                <img
+                src="./HELP/images/help_RM2.png"
+                alt=""
+                width="600px"
+                height="auto"
+                />
+                <div>
+              </span>
+                <p>
+                  After one register was displayed the value of the register can
+                  be changed on the fly by either modifying the value from the
+                  input field or clicking on any bit values.
+                </p>
+                <p>
+                  Every square which contains a bit number has an event listener
+                  enabled, so that on a click the bit will change from 0 -> 1 or
+                  viciversa. In that moment the number from the value field will
+                  also be modified accordingly, see example from the left.
+                </p>
+                <p>
+                  In total there can be generated three
+                  <b>Register Bit Representation</b> windows which work
+                  independantly from each other. Also, these windows can be
+                  deleted or generated at will with no restrictions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="Article" id="A2_Compose_msgs">
+          <div class="flex-start">
+            <span class="material-symbols-sharp">integration_instructions</span>
+
+            <h2>Compose Messages</h2>
+          </div>
+        </article>
+
+        <article class="Article" id="A2_Decode_msg">
+          <div class="flex-start">
+            <span class="material-symbols-sharp">send</span>
+            <h2>Decode Message</h2>
+          </div>
+        </article>
+
+        <article class="Article" id="A2_Decode_CAN_log">
+          <div class="flex-start">
+            <span class="material-symbols-sharp">receipt_long</span>
+            <h2>Decode CAN-Log</h2>
+          </div>
+        </article>
+
+        <article class="Article" id="A2_Factor_group">
+          <div class="flex-start">
+            <span class="material-symbols-sharp"> group_work </span>
+            <h2>Factor Group</h2>
+          </div>
+        </article>
+
+        <article class="Article" id="A2_Programmer_calc">
+          <div class="flex-start">
+            <span class="material-symbols-sharp"> calculate </span>
+            <h2>Programmer Calculator</h2>
+          </div>
+        </article>
+
+        <article class="Article" id="A2_Load_xml">
+          <div class="flex-start">
+            <span class="material-symbols-sharp"> downloading </span>
+            <h2>Load the XML file</h2>
+          </div>
+        </article>
+      </section>
+
+      <section id="CANopen_Theory_space" class="none">
+        <article class="Article" id="A1_CANopen_service">
+          <h2>CANopen Services</h2>
+        </article>
+        <article class="Article" id="A1_nmt">
+          <h2>Network Management (NMT)</h2>
+        </article>
+        <article class="Article" id="A1_sync">
+          <h2>Synchronization object (SYNC)</h2>
+        </article>
+        <article class="Article" id="A1_emcy">
+          <h2>Emergency Object (EMCY)</h2>
+        </article>
+        <article class="Article" id="A1_sdo">
+          <h2>Service Data Object (SDO)</h2>
+        </article>
+        <article class="Article" id="A1_pdo">
+          <h2>Process Data Object (PDO)</h2>
+        </article>
+        <article class="Article" id="A1_bootup">
+          <h2>Boot-Up Protocol</h2>
+        </article>
+        <article class="Article" id="A1_nmtMonitoring">
+          <h2>Heartbeat and nodeguarding</h2>
+        </article>
+      </section>
+    </section>
+
+    <script src="./HELP/help.js"></script>
+  </body>
+</html>

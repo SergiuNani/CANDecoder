@@ -1,0 +1,155 @@
+BUGSSSSSSSS:
+
+
+1. What happens when there is a change of PDO??
+
+2.Closing the modal when nothing was selected ?
+
+3.PDO detected - done and other btns dont do shit if there is an invalid object
+
+4.Need to add Node monitoring fct support (701h 00 -boot up)
+
+
+5. THE Node guarding RTR message from master only contains 700+ID with no message
+/*/*/*/*/*/*/****/*/*/
+Possible bugs:
+1.Register Bit Representation  MOdal - first input supports 16 bit input registers , what about 60fe_02??
+
+
+
+
+
+/*/*/**/*/*/*/*GetObject(index)
+/*IN: 6041_1 || 6040*/
+/*OUT: ['6041_01', 'Statusword in Position Profile', '16'] */
+[0] index
+[1] Name of the index
+[2] BitSize of index
+
+/*/*/*/*/*/*/**CobID_who_dis(cob_id)
+/*IN: CobID_who_dis("28a")
+/*OUT:  ['PDO', 10, 'TPDO2'] */
+[0] Type of meassge -short version (NMT,SDO,PDO)
+[1] Axis_ID
+[2] Recieve/transmit info 
+
+/*/*/*/*/*/*/**L2B_endian(arr)
+/*IN: L2B_endian(["abcd12a", 1234, "aecd"])
+/*OUT:  ['0a12cdab', '3412', 'cdae']
+
+
+/*/*/*/*/*/*/**function SDO_decode(msg) {
+/*IN: SDO_decode("23     4160 03 121abc2")
+/*OUT:  ['23', '6041_03', ' Statusword in Profile Velocity mode', '02bc1a12']
+[0] CS
+[1] Index with/without subindex
+[2] Name of the index
+[3] BigEldian message
+
+
+
+
+/*/*/*/*/*/*/*/*/*/*full_SDO_Decode("601", "23 8560 00 12345678")
+['601', 1, '23', '6085', '00', '78563412', 'Quick stop deceleration ']
+[0]cob_id
+[1]axis_id
+[2]cs
+[3]index
+[4]subindex
+[5]data_in_BigEldian
+[6]name of the index
+
+/*/*/*/*/**/*/*/*full_PDO_Decode("482", "10 20 25 28 26 25")
+['482', 2, 'TPDO4', 2, '6041', 'Statusword', '2010', '606C', 'Velocity actual value', '25262825']
+
+[0]Cob_id
+[1]axis_id
+[2]type_of_PDO
+[3]nr_mapped_obj
+[4]1_st obj_index
+[5]index_name
+[6]value_in_BigEndian
+[7]1_st obj_index
+[8]index_name
+[9]value_in_BigEndian
+...
+
+
+
+
+
+
+/*/*/*/*/*/*/*/*NMT_who_dis("81 01");
+['81', '01', 'Reset Node', 1]
+[0] cs
+[1] axis_id
+[2] what_cs_do
+[3] axis_id_dec
+
+
+/*/*/*/**/*/*/*ABORT_who_dis("00 00 0305")
+out: Toggle bit not alternated
+
+/*/*/**/*/*/*EMCY_who_dis("85", "0073 00 2233");
+['85', 'EMCY', '7300', 'Sensor error; this emergency message also contains 
+other data', 2, '1001h: 00', '2009h: 3322', 5]
+[0] Cob_id
+[1] type=EMCY
+[2] error_code
+[3] description_error_code
+[4] nr_of_following_registers
+[5] 1st reg
+[6] 2nd reg
+[7] axis_id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////
+System limitations :
+
+1. We do not support decoding for 7e4h-7e5 LSS 
+
+2. We do not have support for mapping objects that have an axis id bigger than 30
+3. We are not doing anything for TIME and 701 -77F :NMT -EC;
+4. once an PDO has been mapped it stays that way
+
+5.Simple Analysis
+403 || 15 55/ 15 54 12 1 ?? what is the correct BigEldian?
+
+
+
+
+
+
+///////////////////////////////
+ASUMPTIONS:
+1.EMCY_who_dis MESSAGES:
+0075 01 1020 --> 7500 01 20 10 
+
+2.IF the message is incomplete then we add "0" to the last digit
+ex: 11 1 --> 11 01
+
+
+//How to use Convert Register XML
+1. the copied register must have the first word as the last value the register
+2. when there are bits interval they must be separated by "-" and no spaces between
+
+ex: "13-6" ||"6-13"

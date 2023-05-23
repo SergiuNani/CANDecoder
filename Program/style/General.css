@@ -1,0 +1,400 @@
+.block {
+  display: block;
+}
+.inline {
+  display: inline;
+}
+.inline_block {
+  display: inline-block;
+}
+.none {
+  display: none;
+}
+.animate {
+  transition: all 300ms ease;
+}
+.border {
+  border: 1px solid salmon;
+}
+/* Margin TOP BOTTOM` */
+
+.mt {
+  margin-top: 0.5rem;
+}
+.mb {
+  margin-bottom: 0.5rem;
+}
+.mt1 {
+  margin-top: 1rem;
+}
+.mb1 {
+  margin-bottom: 1rem;
+}
+.mt1_5 {
+  margin-top: 1.5rem;
+}
+.mb1_5 {
+  margin-bottom: 1.5rem;
+}
+.mt2 {
+  margin-top: 2rem;
+}
+.mb2 {
+  margin-bottom: 2rem;
+}
+.mt3 {
+  margin-top: 3rem;
+}
+.mb3 {
+  margin-bottom: 3rem;
+}
+.mt4 {
+  margin-top: 4rem;
+}
+.mb4 {
+  margin-bottom: 4rem;
+}
+/* Margin LEFT RIGHT */
+
+.ml {
+  margin-left: 0.5rem;
+}
+.mr {
+  margin-right: 0.5rem;
+}
+.ml1 {
+  margin-left: 1rem;
+}
+.mr1 {
+  margin-right: 1rem;
+}
+.ml2 {
+  margin-left: 2rem;
+}
+.mr2 {
+  margin-right: 2rem;
+}
+.ml3 {
+  margin-left: 3rem;
+}
+.mr3 {
+  margin-right: 3rem;
+}
+.ml4 {
+  margin-left: 4rem;
+}
+.mr4 {
+  margin-right: 4rem;
+}
+.ml5 {
+  margin-left: 5rem;
+}
+.mr5 {
+  margin-right: 5rem;
+}
+.m {
+  margin: 0.5;
+}
+.m1 {
+  margin: 1rem;
+}
+
+/* padding */
+.margin1 {
+  margin: 1rem;
+}
+.padding1 {
+  padding: 1rem;
+}
+/* FLEX STYLE */
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+.flex-center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-center-gap {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.flex-center-center-gap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+/* ------------BETWEEN---------- */
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+.flex-between-start {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+.flex-between-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ------------Column---------- */
+
+.flex-align-column {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.flex-column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.flex-column-center-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.flex-column-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 0.5rem;
+}
+.flex-start {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+}
+.flex-end {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+/*Used for Register Modal input fields*/
+.input_1 {
+  outline: none;
+  border: none;
+  width: 6rem;
+  font-size: 1.5rem;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--border-radius-1);
+  text-align: center;
+}
+
+.input_1:focus {
+  border: 1.5px solid var(--color-danger);
+  transition-timing-function: ease-in-out;
+  transition: 0.3s;
+}
+
+/*Used for Calculator APP */
+.input_2 {
+  outline: none;
+  border: none;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--border-radius-1);
+  font-size: 1.1rem;
+  padding: 0.1rem 0.5rem;
+  width: 9rem;
+}
+.input_2:focus {
+  border: 1px solid var(--color-new-green);
+}
+/*Used for Calculator APP general display*/
+.input_3 {
+  font-size: 1.7rem;
+  color: var(--color-new-green);
+  color: #831813;
+  color: var(--color-success);
+}
+
+.input_4 {
+  font-size: 2rem;
+  height: 100%;
+  background-color: transparent;
+}
+.input_4:focus {
+  background-color: var(--color-white);
+}
+.input_5 {
+  padding: 0.5rem 1rem;
+  background: var(--color-white);
+  color: var(--color-dark);
+  font-size: 0.8rem;
+  font-weight: 1500;
+  box-shadow: 0 5rem 20rem rgba(245, 28, 28, 0.05);
+  width: 6.6rem;
+  font-weight: 500;
+  border: 1px solid var(--color-dark);
+  border-radius: 0.5rem;
+}
+.input_6 {
+  padding: 0.5rem 1rem;
+  background: var(--color-white);
+  color: var(--color-dark);
+  font-size: 0.8rem;
+  font-weight: 1500;
+  box-shadow: 0 5rem 20rem rgba(245, 28, 28, 0.05);
+  width: 4.6rem;
+  font-weight: 500;
+  border: 1px solid var(--color-dark);
+  border-radius: 0.5rem;
+  text-align: center;
+}
+.border_success {
+  padding: 0.12rem;
+  animation-name: moving-border-success;
+  animation-duration: 0.3s;
+  border-radius: 0.5rem;
+  background-image: linear-gradient(var(--color-success), var(--color-success)),
+    linear-gradient(var(--color-success), var(--color-success)),
+    linear-gradient(var(--color-success), var(--color-success)),
+    linear-gradient(var(--color-success), var(--color-success));
+  background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+  /*   background-size: 100% 2px, 2px 100%, 100% 2px, 2px 100%;  */
+  background-repeat: no-repeat;
+}
+#cont {
+  padding: 0.09rem;
+  display: inline-block;
+}
+@keyframes moving-border-success {
+  0% {
+    background-size: 0 2px, 0 0, 0 0, 0 0;
+  }
+
+  25% {
+    background-size: 100% 2px, 0 0, 0 0, 0 0;
+  }
+
+  50% {
+    background-size: 100% 2px, 2px 100%, 0 0, 0 0;
+  }
+
+  75% {
+    background-size: 100% 2px, 2px 100%, 100% 2px, 0 0;
+  }
+
+  100% {
+    background-size: 100% 2px, 2px 100%, 100% 2px, 2px 100%;
+  }
+}
+.border_danger {
+  padding: 0.12rem;
+  animation-name: moving-border-danger;
+  animation-duration: 0.3s;
+  border-radius: 0.5rem;
+  background-image: linear-gradient(var(--color-danger), var(--color-danger)),
+    linear-gradient(var(--color-danger), var(--color-danger)),
+    linear-gradient(var(--color-danger), var(--color-danger)),
+    linear-gradient(var(--color-danger), var(--color-danger));
+  background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+  /*   background-size: 100% 2px, 2px 100%, 100% 2px, 2px 100%;  */
+  background-repeat: no-repeat;
+}
+#cont {
+  padding: 0.09rem;
+  display: inline-block;
+}
+@keyframes moving-border-danger {
+  0% {
+    background-size: 0 2px, 0 0, 0 0, 0 0;
+  }
+
+  25% {
+    background-size: 100% 2px, 0 0, 0 0, 0 0;
+  }
+
+  50% {
+    background-size: 100% 2px, 2px 100%, 0 0, 0 0;
+  }
+
+  75% {
+    background-size: 100% 2px, 2px 100%, 100% 2px, 0 0;
+  }
+
+  100% {
+    background-size: 100% 2px, 2px 100%, 100% 2px, 2px 100%;
+  }
+}
+
+/*----------------------*/
+/* BUTTONS */
+/*----------------------*/
+
+/* CSS */
+.button_1 {
+  appearance: none;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  border-radius: 1rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  line-height: normal;
+  margin: 0;
+
+  outline: none;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms ease;
+  /* transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1); */
+}
+
+.button_1:hover {
+  box-shadow: var(--color-primary) 1px 1px 2px 0;
+  transform: translateY(-0.2rem);
+}
+
+.button_1:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+.button_2 {
+  appearance: none;
+  background-color: var(--color-background);
+  color: var(--color-dark);
+  border-radius: 1rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  line-height: normal;
+  margin: 0;
+
+  outline: none;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms ease;
+  /* transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1); */
+}
+
+.button_2:hover {
+  box-shadow: var(--color-primary) 1px 1px 2px 0;
+  color: var(--color-danger);
+  transform: translateY(-0.2rem);
+}
+
+.button_2:active {
+  box-shadow: none;
+  transform: translateY(0);
+}

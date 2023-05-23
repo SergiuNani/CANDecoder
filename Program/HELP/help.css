@@ -1,0 +1,193 @@
+:root {
+  --color-white-1: #f6f6f6;
+  --color-white-2: #fff;
+  --color-white-3: #d7dde4;
+  --color-dark-1: #363949;
+  --color-dark-2: #677483;
+  --color-dark-3: #7d8da1;
+  --color-new-green: #75e6da;
+  --color-new-yellow: #af3e97;
+  --color-blue-1: rgb(15, 161, 228);
+  --color-blue-2: #265a95;
+  --color-blue-3: #e9f1fa;
+  --color-primary: #7380ec;
+  --color-danger: #ff7782;
+  --color-success: #41f1b6;
+  --color-warning: #ffbb55;
+  --border-radius-3: 1.2rem;
+  --box-shadow: 0rem 2rem 3rem rgba(132, 139, 200, 0.18);
+}
+
+.dark-theme-colors {
+  --color-white-1: #181a1e;
+  --color-white-2: #202528;
+  --color-white-3: #363f52;
+  --color-dark-1: #edeffd;
+  --color-dark-2: #a3bdcc;
+  --color-new-green: #75e6da;
+  --color-new-yellow: #ead37e;
+  --color-blue-3: #2d394b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-white-1);
+  color: var(--color-dark-1);
+  position: relative;
+}
+body .danger {
+  color: var(--color-danger);
+}
+body .button-option {
+  font-size: 1rem;
+  padding: 0.5rem 1.2rem;
+  color: var(--color-dark-1);
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+body .button-option:hover {
+  transform: translateY(-0.1rem);
+}
+body .button-option.selected {
+  border: 1px solid var(--color-blue-1);
+}
+
+#Main_header {
+  background-color: var(--color-white-2);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  padding: 0.6rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+#Main_header #themeToggler {
+  border-radius: 2rem;
+  padding: 0.2rem 0.3rem;
+  cursor: pointer;
+  border: 1px solid var(--color-white-3);
+}
+#Main_header .active_theme {
+  background-color: var(--color-primary);
+  padding: 0.2rem;
+  border-radius: 50%;
+  transition: all 300ms ease;
+}
+#Main_header .button_1 {
+  background-color: var(--color-dark-1);
+  color: var(--color-white-3);
+  padding: 0.5rem 1rem;
+}
+#Main_header .button_1:hover {
+  color: var(--color-primary);
+}
+
+#CANopen_floating_options,
+#CANDECODER_floating_options {
+  list-style: none;
+  width: 80%;
+  margin: auto;
+  background-color: var(--color-white-1);
+}
+#CANopen_floating_options .nav-link,
+#CANDECODER_floating_options .nav-link {
+  background-color: var(--color-white-2);
+  color: var(--color-dark-1);
+  padding: 0.5rem;
+  text-align: center;
+}
+#CANopen_floating_options .nav-link:hover,
+#CANDECODER_floating_options .nav-link:hover {
+  background-color: var(--color-white-3);
+}
+#CANopen_floating_options .active_nav_canopen,
+#CANDECODER_floating_options .active_nav_canopen {
+  border-bottom: 0.5rem solid transparent;
+  box-shadow: 0 0.2rem 0px var(--color-new-green);
+  display: block;
+}
+
+#CANopen_Theory_space,
+#CANDECODER_Theory_space {
+  width: 90%;
+  margin: auto;
+  position: relative;
+  background-color: var(--color-white-1);
+}
+
+a span {
+  background-color: var(--color-primary);
+  padding: 0.5rem;
+  border-radius: 50%;
+  color: var(--color-white);
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.p_articleClass {
+  background-color: var(--color-white-2);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius-3);
+  margin: 0.8rem 0.5rem;
+  padding: 1rem;
+  position: relative;
+}
+
+.p_articleClass:hover {
+  box-shadow: none;
+}
+
+article {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: var(--color-white-2);
+  border-radius: var(--border-radius-3);
+  border: 1px solid var(--color-dark-1);
+}
+article:hover {
+  box-shadow: none;
+}
+article .material-symbols-sharp {
+  display: inline;
+  background-color: var(--color-primary);
+  padding: 0.5rem;
+  border-radius: 50%;
+  color: var(--color-white);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+article .Article_paragrath {
+  background-color: var(--color-white-2);
+  color: var(--color-dark-1);
+  margin-bottom: 0.7rem;
+  padding: 1rem 1.4rem;
+  border-radius: var(--border-radius-3);
+  box-shadow: var(--box-shadow);
+  transition: all 300ms ease;
+  position: relative;
+  text-align: justify;
+}
+article .help_index {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  padding: 0.3rem 1.4rem;
+  width: 2rem;
+  height: 2.5rem;
+  background-color: var(--color-success);
+  color: var(--color-white-1);
+}/*# sourceMappingURL=help.css.map */

@@ -1,0 +1,225 @@
+/*======== HELP Activated ========*/
+.HELP_extended #CAN_DECODER_BODY_container {
+  height: 90vh;
+  overflow-y: hidden;
+}
+.HELP_extended #HELP_menu_btn {
+  color: var(--color-new-green);
+}
+.HELP_extended #HELP_menu_btn span:hover {
+  color: var(--color-new-green);
+}
+
+.HELP_extended .HELP_container {
+  visibility: visible;
+  opacity: 1;
+  /* transition: visibility 0s, opacity 0s; */
+}
+.HELP_extended #global_overlay {
+  display: block;
+}
+#global_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--color-dark);
+  content: "";
+  z-index: 3;
+  display: none;
+}
+.HELP_container {
+  display: grid;
+  grid-template-columns: 0.3fr 1fr;
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translate(-50%);
+  width: 95%;
+  height: 100%;
+  margin: auto;
+  background-color: var(--color-background);
+  border-radius: var(--border-radius-3);
+  border: 1px solid rgb(115, 201, 29);
+  user-select: none;
+  z-index: 3;
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s ease-out;
+}
+
+.help_nav {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 1rem;
+}
+
+.help_nav h1 {
+  margin: 0 2rem;
+}
+.help_nav .material-symbols-sharp {
+  font-size: 1.5rem;
+  margin: 0 1.4rem;
+}
+.help_nav .material-symbols-sharp:hover {
+  color: var(--color-danger);
+  cursor: pointer;
+}
+
+.help_nav h1 span {
+  color: var(--color-danger);
+}
+
+/*======== HELP SIDEBAR ========*/
+
+.HELP_sidebar {
+  /* border: 1px solid rgb(32, 172, 76); */
+  padding: 5px;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  text-align: start;
+  border-radius: var(--border-radius-3);
+
+  /* color: aliceblue; */
+}
+.HELP_sidebar::before {
+  content: "";
+  border: 1px solid var(--color-danger);
+  margin-bottom: 1rem;
+  /* padding: 0 100px; */
+  margin: 0 2rem 1rem 1rem;
+  /* position: absolute; */
+
+  /* height: 100%; */
+}
+
+.help_sidebar_element {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  gap: 0.4rem;
+
+  margin-bottom: 1rem;
+  transition: all 300ms ease;
+}
+.help_sidebar_element:hover {
+  cursor: pointer;
+  color: var(--color-success);
+}
+.help_sidebar_element h3 {
+  font-size: 1.1rem;
+}
+.help_sidebar_element span {
+  font-size: 2rem;
+}
+/*========================= HELP BODY MENU ======================*/
+
+/*======== HELP MAIN BODY ========*/
+.HELP_main {
+  /* border: 1px solid rgb(235, 196, 4); */
+  padding: 5px;
+  margin-top: 4.1rem;
+  overflow: auto;
+}
+
+.Article_header {
+  /* margin-bottom: 100.1rem; */
+  padding: 1rem 1.5rem;
+  border-radius: var(--border-radius-3);
+  transition: all 300ms ease;
+
+  display: flex;
+  align-items: center;
+  box-shadow: var(--box-shadow);
+  gap: 1rem;
+  width: 20rem;
+  margin: 3rem 0 1.5rem 0;
+  background-color: var(--color-light-2);
+}
+
+.Article_header b {
+  color: var(--color-dark);
+  /* color: var(--color-success); */
+  /* color: #e6e6e6; */
+}
+
+.Article_header div {
+  display: flex;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--color-success);
+  color: var(--color-white);
+}
+
+.Article_body {
+  background-color: var(--color-white);
+  margin-bottom: 0.7rem;
+  padding: 1.4rem var(--card-padding);
+  border-radius: var(--border-radius-3);
+  box-shadow: var(--box-shadow);
+  transition: all 300ms ease;
+  position: relative;
+  text-align: justify;
+}
+.Article_body:hover {
+  box-shadow: none;
+}
+.helpCard {
+  background-color: var(--color-white);
+
+  margin-bottom: 0.7rem;
+  padding: 1.4rem var(--card-padding);
+  border-radius: var(--border-radius-3);
+  box-shadow: var(--box-shadow);
+  transition: all 300ms ease;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  text-align: justify;
+}
+.helpCard:hover {
+  box-shadow: none;
+}
+
+.help_sidebar_element h3 {
+  display: inline-block;
+}
+
+.cardDescriptionLine {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.helpCard_title > span {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.help_index {
+  font-size: 1.5rem;
+  /* border: 4px solid green; */
+  padding: 0.3rem 1.4rem;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--color-success);
+  color: var(--color-dark);
+
+  display: flex;
+  justify-content: center;
+}
+
+#anchor_About {
+  margin-top: 0;
+}

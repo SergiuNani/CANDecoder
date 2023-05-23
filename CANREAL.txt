@@ -1,0 +1,23 @@
+THINGS TO TEST IN CANREAL:
+
+1. Write or Read in obj 1018 : 2F 1810 00 12
+
+2. SDO 6081 value 12345 ? -> 45 23 01
+
+deahiu 1000 IU 3E8 -> E8 03
+
+3.Read 1008h -device name
+
+4. 6081, 123456 => 23 8160 00 56 34 12 00
+
+5. Apply FG spd :RPM; 6081 = 100rpm => 238160 00 64 00 00 00
+speed == 100rpm to check
+6. map two obj 6081 -607a
+send 1000rpm 30rot ->
+
+
+
+//NEW TESTS
+
+GET me abort codes logs
+GET me EMCY  logs
